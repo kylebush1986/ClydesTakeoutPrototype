@@ -25,7 +25,11 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
         #endregion
 
         #region Methods
-        
+        public void CalculateTotal(float subTotal)
+        {
+            float taxRate = 1.0825f;
+            Total = subTotal + (subTotal * taxRate);
+        }
         #endregion
     }
 }
