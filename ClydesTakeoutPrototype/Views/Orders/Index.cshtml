@@ -1,0 +1,27 @@
+﻿@model ClydesTakeoutPrototype.Models.OrderModels.Order
+
+@{
+    ViewData["Title"] = "Order";
+}
+
+<h1>Order</h1>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    @foreach(var item in Model.Items)
+    {
+        <div>
+            <div>
+                <h3>@item.Name</h3>
+            </div>
+            <div>
+                <p>@item.Price</p>
+            </div>
+        </div>
+    }
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,8 +1,45 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<style>
+    body {
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/images/clydes.jpg);
+        min-height: 100%;
+        background-position: center;
+        background-size: cover;
+    }
 
+    .text-center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        color: white;
+    }
+
+    p {
+        width: 50%;
+        margin: 0 auto;
+        padding-bottom: 20px;
+    }
+
+    #startOrder {
+        background-color: cornflowerblue;
+        color: white;
+        border: none;
+        padding: 10px 30px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 12px;
+    }
+
+</style>
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to Clyde's</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et malesuada turpis egestas integer eget.</p>
+    <a class="btn btn-outline-light" asp-controller="Home" asp-action="Login">Login</a>
 </div>

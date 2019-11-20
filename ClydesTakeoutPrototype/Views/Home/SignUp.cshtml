@@ -1,0 +1,70 @@
+﻿@using ClydesTakeoutPrototype.Models.SystemModels
+
+@model ClydesTakeoutPrototype.Models.SystemModels.User
+
+@{
+    ViewData["Title"] = "Sign Up";
+}
+<style>
+    body {
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/images/clydes.jpg);
+        min-height: 100%;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .text-center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        color: white;
+    }
+
+    p {
+        width: 50%;
+        margin: 0 auto;
+        padding-bottom: 20px;
+    }
+
+    #sign-up {
+        background-color: white;
+        width: 50%;
+    }
+
+</style>
+
+<div id="sign-up" class="container">
+    <form class="form-check" asp-action="SignUp">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="container col-md-10">
+            <h1>Sign Up</h1>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input class="form-control" placeholder="FirstName" asp-for="FirstName" required>
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input class="form-control" placeholder="LastName" asp-for="LastName" required>
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input class="form-control" placeholder="Enter Email" asp-for="Email" required>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input class="form-control" placeholder="Enter Password" asp-for="Password" required>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input class="btn btn-outline-success" value="Sign Up" type="submit">
+                <a class="btn btn-outline-danger" asp-controller="Home" asp-action="Index">Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>
