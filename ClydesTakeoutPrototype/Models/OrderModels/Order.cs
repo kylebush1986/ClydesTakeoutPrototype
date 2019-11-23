@@ -21,7 +21,19 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
         #endregion
 
         #region Constructors
-        public Order() { }
+        public Order() 
+        {
+            ID = Helpers.Utilities.GenerateGuid();
+        }
+        public Order(User user, DateTime ptime, string spInst, float subTotal, ICollection<Item> items)
+        {
+            ID = Helpers.Utilities.GenerateGuid();
+            User = user;
+            PickupTime = ptime;
+            SpecialInstructions = spInst;
+            CalculateTotal(subTotal);
+            Items = items;
+        }
         #endregion
 
         #region Methods

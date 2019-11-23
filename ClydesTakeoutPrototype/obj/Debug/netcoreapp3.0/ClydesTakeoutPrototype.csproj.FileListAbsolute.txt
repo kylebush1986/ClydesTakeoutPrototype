@@ -273,3 +273,14 @@ C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\ClydesTakeoutPrototype.csproj.CopyComplete
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\ClydesTakeoutPrototype.dll
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\ClydesTakeoutPrototype.pdb
+C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Configuration.dll
+C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Logging.dll
+C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Options.dll
+C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Microsoft.Extensions.Primitives.dll

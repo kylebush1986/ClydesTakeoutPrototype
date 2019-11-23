@@ -6,13 +6,21 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using ClydesTakeoutPrototype.Models.MenuModels;
+using ClydesTakeoutPrototype.Helpers;
 
 namespace ClydesTakeoutPrototype
 {
     public class Program
     {
+        public static Menu ClydesMenu { get; set; }
         public static void Main(string[] args)
         {
+            ClydesMenu = new Menu()
+            {
+                Items = MenuBuilder.MenuItems
+            };
+            
             CreateHostBuilder(args).Build().Run();
         }
 

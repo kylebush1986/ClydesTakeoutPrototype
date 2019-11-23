@@ -5,6 +5,24 @@ using System.Threading.Tasks;
 
 namespace ClydesTakeoutPrototype.Models.OrderModels
 {
+    public enum DrinkType
+    {
+        Coke,
+        Pepsi,
+        Lemonade,
+        Sprite,
+        DrPepper,
+        Water,
+        None
+    }
+
+    public enum Size
+    {
+        Small,
+        Medium,
+        Large,
+        None
+    }
     public class Drink : Item
     {
         #region Properties
@@ -14,27 +32,17 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
 
         #region Constructors
         public Drink() : base() { }
+        public Drink(DrinkType type, Size size, string name, TimeSpan prepTime, string description, float price, string imageURL)
+            : base(name, prepTime, description, price, imageURL)
+        {
+            Type = type;
+            DrinkSize = size;
+        }
+        
         #endregion
 
         #region Methods
-        public enum DrinkType
-        {
-            Coke,
-            Pepsi,
-            Lemonade,
-            Sprite,
-            DrPepper,
-            Water,
-            None
-        }
-
-        public enum Size
-        {
-            Small,
-            Medium,
-            Large,
-            None
-        }
+        
         #endregion
     }
 }

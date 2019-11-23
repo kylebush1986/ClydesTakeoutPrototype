@@ -5,6 +5,14 @@ using System.Threading.Tasks;
 
 namespace ClydesTakeoutPrototype.Models.OrderModels
 {
+    public enum SideType
+    {
+        Fries,
+        SweetPotatoFries,
+        Chips,
+        Salad,
+        None
+    }
     public class Side : Item
     {
         #region Properties
@@ -13,17 +21,15 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
 
         #region Constructors
         public Side() : base() { }
+        public Side(SideType type, string name, TimeSpan prepTime, string description, float price, string imageURL)
+            : base(name, prepTime, description, price, imageURL)
+        {
+            Type = type;
+        }
         #endregion
 
         #region Methods
-        public enum SideType
-        {
-            Fries,
-            SweetPotatoFries,
-            Chips,
-            Salad,
-            None
-        }
+      
         #endregion
     }
 }

@@ -22,14 +22,12 @@ namespace ClydesTakeoutPrototype.Controllers
 
         public IActionResult Index()
         {
-            Menu menu = new Menu();
-            return View(menu);
+            return View(Program.ClydesMenu);
         }
 
         public IActionResult MenuItem(ulong id)
         {
-            return View();
-            //return View(Helpers.MenuBuilder.Items.FirstOrDefault(x => x.ID == id));
+            return View(Helpers.MenuBuilder.MenuItems.FirstOrDefault(x => x.ID == id));
         }
     }
 }

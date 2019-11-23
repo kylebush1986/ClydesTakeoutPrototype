@@ -15,6 +15,16 @@ namespace ClydesTakeoutPrototype.Models.MenuModels
         #endregion
 
         #region Constructors
+        public Menu()
+        {
+            ID = Helpers.Utilities.GenerateGuid();
+        }
+
+        public Menu(ICollection<Item> items)
+        {
+            ID = Helpers.Utilities.GenerateGuid();
+            Items = items;
+        }
 
         #endregion
 

@@ -7,6 +7,12 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
 {
     public class Entree : Item
     {
+        public enum EntreeCategories
+        {
+            Fried,
+            Grilled,
+            Salad
+        }
         #region Properties
         public EntreeCategories Category { get; set; }
         public ulong SideID { get; set; }
@@ -15,17 +21,19 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
 
 
         #region Constructors
-        public Entree() : base() {}
+        public Entree() : base() { }
+        public Entree(EntreeCategories cat, ulong sID, ulong dID, string name, TimeSpan prepTime, string description, float price, string imageURL)
+            : base(name, prepTime, description, price, imageURL)
+        {
+            Category = cat;
+            SideID = sID;
+            DrinkID = dID;
+        }
 
         #endregion
 
         #region Methods
-        public enum EntreeCategories
-        {
-            Fried,
-            Grilled,
-            Salad
-        }
+
         #endregion
     }
 }

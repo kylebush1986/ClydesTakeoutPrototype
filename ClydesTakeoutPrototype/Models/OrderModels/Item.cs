@@ -20,9 +20,13 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
         #endregion
 
         #region Constructors
-        public Item() { }
+        public Item() 
+        {
+            ID = Helpers.Utilities.GenerateGuid();
+        }
         public Item(string name, TimeSpan prepTime, string description, float price, string imageURL)
         {
+            ID = Helpers.Utilities.GenerateGuid();
             Name = name;
             PrepTime = prepTime;
             Description = description;
