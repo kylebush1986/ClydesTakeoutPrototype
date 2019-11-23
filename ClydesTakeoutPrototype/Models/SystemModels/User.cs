@@ -21,7 +21,10 @@ namespace ClydesTakeoutPrototype.Models.SystemModels
         #endregion
 
         #region Constructors
-        public User() { }
+        public User() {
+            ID = Helpers.Utilities.GenerateGuid();
+        }
+
         public User(string firstName, string lastName, string email, string password)
         {
             FirstName = firstName;
@@ -29,11 +32,13 @@ namespace ClydesTakeoutPrototype.Models.SystemModels
             Email = email;
             Password = Utilities.GenerateDjb264Hash(password).ToString();
         }
+
+        #endregion
+
+        #region Methods
+
+        #endregion
     }
-    #endregion
 
-    #region Methods
-
-    #endregion
 
 }

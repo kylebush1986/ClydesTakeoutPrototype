@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kyleb\\Documents\\CS3300 - Software Engineering\\ClydesTakeoutPrototype\\ClydesTakeoutPrototype\\ClydesTakeoutPrototype.csproj": {}
+    "C:\\GitHub\\ClydesTakeoutPrototype\\ClydesTakeoutPrototype\\ClydesTakeoutPrototype.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kyleb\\Documents\\CS3300 - Software Engineering\\ClydesTakeoutPrototype\\ClydesTakeoutPrototype\\ClydesTakeoutPrototype.csproj": {
+    "C:\\GitHub\\ClydesTakeoutPrototype\\ClydesTakeoutPrototype\\ClydesTakeoutPrototype.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kyleb\\Documents\\CS3300 - Software Engineering\\ClydesTakeoutPrototype\\ClydesTakeoutPrototype\\ClydesTakeoutPrototype.csproj",
+        "projectUniqueName": "C:\\GitHub\\ClydesTakeoutPrototype\\ClydesTakeoutPrototype\\ClydesTakeoutPrototype.csproj",
         "projectName": "ClydesTakeoutPrototype",
-        "projectPath": "C:\\Users\\kyleb\\Documents\\CS3300 - Software Engineering\\ClydesTakeoutPrototype\\ClydesTakeoutPrototype\\ClydesTakeoutPrototype.csproj",
-        "packagesPath": "C:\\Users\\kyleb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kyleb\\Documents\\CS3300 - Software Engineering\\ClydesTakeoutPrototype\\ClydesTakeoutPrototype\\obj\\",
+        "projectPath": "C:\\GitHub\\ClydesTakeoutPrototype\\ClydesTakeoutPrototype\\ClydesTakeoutPrototype.csproj",
+        "packagesPath": "C:\\Users\\georgebc\\.nuget\\packages\\",
+        "outputPath": "C:\\GitHub\\ClydesTakeoutPrototype\\ClydesTakeoutPrototype\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\kyleb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\georgebc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -43,7 +43,7 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[3.0.1, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

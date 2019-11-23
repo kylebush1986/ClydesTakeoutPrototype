@@ -7,16 +7,19 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ClydesTakeoutPrototype.Models;
 using ClydesTakeoutPrototype.Models.SystemModels;
+using ClydesTakeoutPrototype.Data;
 
 namespace ClydesTakeoutPrototype.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly DataContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, DataContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -37,20 +40,23 @@ namespace ClydesTakeoutPrototype.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login([Bind("Email,Password,ID")] User user)
+        public async Task<IActionResult> Login([Bind("Email,Password,ID")] User user)
         {
             if (ModelState.IsValid)
             {
+                User account = _context.User.FirstOrDefault(u => u.Email == user.Email && u.Password == user.Password);
                 return RedirectToAction("Index", "Home");
             }
             return View(user);
         }
 
         [HttpPost]
-        public IActionResult SignUp([Bind("FirstName,LastName,Email,Password")] User user)
+        public async Task<IActionResult> SignUp([Bind("FirstName,LastName,Email,Password")] User user)
         {
             if (ModelState.IsValid)
             {
+                await _context.User.AddAsync(user);
+                await _context.SaveChangesAsync();
                 return RedirectToAction("Index", "Home");
             }
             return View(user);

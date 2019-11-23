@@ -1,0 +1,1 @@
+﻿create database DataContext_0 on (name=DataContext_0, filename="c:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\Data\DataContext_0.mdf");
