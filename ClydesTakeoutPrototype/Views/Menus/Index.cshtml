@@ -1,22 +1,68 @@
 ﻿@using ClydesTakeoutPrototype.Models.MenuModels
+@using ClydesTakeoutPrototype.Models.OrderModels
 @model ClydesTakeoutPrototype.Models.MenuModels.Menu
 
 @{
 }
+<style>
+    .divider {
+        background-color: lightgray;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+</style>
 
 <h1>Menu</h1>
-
+<h2 class="divider">Entrees</h2>
 @foreach (var item in Model.Items)
 {
-    <div class="row">
-        <div class="col-3">
-            <img class="img-fluid" src="~/images/menu_items/@item.ImageURL"/>
+    if (item.GetType() == typeof(Entree))
+    {
+        <div class="row py-2">
+            <div class="col-3">
+                <img class="img-fluid" src="~/images/menu_items/@item.ImageURL" />
+            </div>
+            <div class="col-9">
+                <h3>@item.Name</h3> @*item name*@
+                <p>@item.Description</p>
+                <p>Price: $@item.Price</p>
+                <a class="btn btn-outline-primary" asp-controller="Menus" asp-action="MenuItem" asp-route-id="@item.ID">View Item</a>
+            </div>
         </div>
-        <div class="col-9">
-            <h2>@item.Name</h2> @*item name*@
-            <p>@item.Description</p>
-            <p>Price: $@item.Price</p>
-            <a class="btn btn-outline-primary" asp-controller="Menus" asp-action="MenuItem" asp-route-id="@item.ID">Add to Order</a>
+    }
+}
+
+<h2 class="divider">Sides</h2>
+@foreach (var item in Model.Items)
+{
+    if (item.GetType() == typeof(Side))
+    {
+        <div class="row py-2">
+            <div class="col-3">
+                <img class="img-fluid" src="~/images/menu_items/@item.ImageURL" />
+            </div>
+            <div class="col-9">
+                <h3>@item.Name</h3> @*item name*@
+                <p>@item.Description</p>
+                <p>Price: $@item.Price</p>
+                <a class="btn btn-outline-primary" asp-controller="Menus" asp-action="MenuItem" asp-route-id="@item.ID">View Item</a>
+            </div>
         </div>
-    </div>
+    }
+}
+
+<h2 class="divider">Drinks</h2>
+@foreach (var item in Model.Items)
+{
+    if (item.GetType() == typeof(Drink))
+    {
+        <div class="row">
+            <div class="col-9">
+                <h3>@item.Name</h3> @*item name*@
+                <p>@item.Description</p>
+                <p>Price: $@item.Price</p>
+                <a class="btn btn-outline-primary" asp-controller="Menus" asp-action="MenuItem" asp-route-id="@item.ID">Add to Order</a>
+            </div>
+        </div>
+    }
 }

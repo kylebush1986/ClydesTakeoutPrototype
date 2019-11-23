@@ -8,8 +8,8 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
     public enum SideType
     {
         Fries,
-        SweetPotatoFries,
-        Chips,
+        OnionRings,
+        Soup,
         Salad,
         None
     }

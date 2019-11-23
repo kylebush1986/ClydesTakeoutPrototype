@@ -13,7 +13,6 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
     }
     public class Entree : Item
     {
-        
         #region Properties
         public EntreeCategories Category { get; set; }
         public ulong SideID { get; set; }
