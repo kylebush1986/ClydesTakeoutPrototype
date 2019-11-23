@@ -15,6 +15,7 @@ namespace ClydesTakeoutPrototype.Models.MenuModels
         #endregion
 
         #region Constructors
+        public Menu() { }
 
         #endregion
 
