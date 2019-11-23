@@ -5,14 +5,15 @@ using System.Threading.Tasks;
 
 namespace ClydesTakeoutPrototype.Models.OrderModels
 {
+    public enum EntreeCategories
+    {
+        Fried,
+        Grilled,
+        Salad
+    }
     public class Entree : Item
     {
-        public enum EntreeCategories
-        {
-            Fried,
-            Grilled,
-            Salad
-        }
+        
         #region Properties
         public EntreeCategories Category { get; set; }
         public ulong SideID { get; set; }

@@ -19,7 +19,7 @@ namespace ClydesTakeoutPrototype.Helpers
                     Description = "A Clyde's favorite! This delicious 1/4 lb burger comes topped with lettuce, tomato, onion, and a pickle. Sure to delight any burger lover.",
                     ImageURL = "burger.jpeg",
                     Price = 12.00f,
-                    Category = Entree.EntreeCategories.Grilled
+                    Category = EntreeCategories.Grilled
                 },
 
                 new Entree()
@@ -28,7 +28,7 @@ namespace ClydesTakeoutPrototype.Helpers
                     Description = "Clyde's campus famous chicken sandwich comes with letuce, tomato, a pickle, and Clyde's secret sauce. This is one tasty sandwich.",
                     ImageURL = "chicken_sandwich.jpg",
                     Price = 9.50f,
-                    Category = Entree.EntreeCategories.Fried
+                    Category = EntreeCategories.Fried
                 }
             };
         }
