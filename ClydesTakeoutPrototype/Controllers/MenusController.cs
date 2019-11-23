@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ClydesTakeoutPrototype.Models.MenuModels;
-using ClydesTakeoutPrototype.Helpers;
 
 namespace ClydesTakeoutPrototype.Controllers
 {
@@ -13,7 +12,6 @@ namespace ClydesTakeoutPrototype.Controllers
         public IActionResult Index()
         {
             Menu menu = new Menu();
-            menu.Items = MenuBuilder.GetListAsItem();
             return View(menu);
         }
 
