@@ -21,8 +21,8 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
 
         #region Constructors
         public Side() : base() { }
-        public Side(SideType type, string name, TimeSpan prepTime, string description, float price, string imageURL)
-            : base(name, prepTime, description, price, imageURL)
+        public Side(SideType type, string name, TimeSpan prepTime, string description, float price, string imageURL, string spInst)
+            : base(name, prepTime, description, price, imageURL, spInst)
         {
             Type = type;
         }

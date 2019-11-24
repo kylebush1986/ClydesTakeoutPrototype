@@ -25,12 +25,11 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
         {
             ID = Helpers.Utilities.GenerateGuid();
         }
-        public Order(User user, DateTime ptime, string spInst, float subTotal, ICollection<Item> items)
+        public Order(User user, DateTime ptime, float subTotal, ICollection<Item> items)
         {
             ID = Helpers.Utilities.GenerateGuid();
             User = user;
             PickupTime = ptime;
-            SpecialInstructions = spInst;
             CalculateTotal(subTotal);
             Items = items;
         }

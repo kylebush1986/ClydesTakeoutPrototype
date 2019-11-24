@@ -22,8 +22,8 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
 
         #region Constructors
         public Entree() : base() { }
-        public Entree(EntreeCategories cat, ulong sID, ulong dID, string name, TimeSpan prepTime, string description, float price, string imageURL)
-            : base(name, prepTime, description, price, imageURL)
+        public Entree(EntreeCategories cat, ulong sID, ulong dID, string name, TimeSpan prepTime, string description, float price, string imageURL, string spInst)
+            : base(name, prepTime, description, price, imageURL, spInst)
         {
             Category = cat;
             SideID = sID;

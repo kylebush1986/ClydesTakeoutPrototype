@@ -4,16 +4,11 @@
 
 @{
 }
-<style>
-    .divider {
-        background-color: lightgray;
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-</style>
 
 <h1>Menu</h1>
-<h2 class="divider">Entrees</h2>
+<hr />
+<h2>Entrees</h2>
+<hr />
 @foreach (var item in Model.Items)
 {
     if (item.GetType() == typeof(Entree))
@@ -32,7 +27,9 @@
     }
 }
 
-<h2 class="divider">Sides</h2>
+<hr />
+<h2>Sides</h2>
+<hr />
 @foreach (var item in Model.Items)
 {
     if (item.GetType() == typeof(Side))
@@ -51,14 +48,16 @@
     }
 }
 
-<h2 class="divider">Drinks</h2>
+<hr />
+<h2>Drinks</h2>
+<hr />
 @foreach (var item in Model.Items)
 {
     if (item.GetType() == typeof(Drink))
     {
         <div class="row">
             <div class="col-9">
-                <h3>@item.Name</h3> @*item name*@
+                <h5>@item.Name</h5> @*item name*@
                 <p>@item.Description</p>
                 <p>Price: $@item.Price</p>
                 <a class="btn btn-outline-primary" asp-controller="Menus" asp-action="MenuItem" asp-route-id="@item.ID">Add to Order</a>

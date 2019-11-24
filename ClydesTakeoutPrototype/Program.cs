@@ -16,6 +16,7 @@ namespace ClydesTakeoutPrototype
         public static Menu ClydesMenu { get; set; }
         public static void Main(string[] args)
         {
+
             ClydesMenu = new Menu()
             {
                 Items = MenuBuilder.MenuItems

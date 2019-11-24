@@ -17,6 +17,7 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
         public float Price { get; set; }
         public string ImageURL { get; set; }
         public ulong ContainerID { get; set; }
+        public string SpecialInstructions { get; set; }
         #endregion
 
         #region Constructors
@@ -24,7 +25,7 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
         {
             ID = Helpers.Utilities.GenerateGuid();
         }
-        public Item(string name, TimeSpan prepTime, string description, float price, string imageURL)
+        public Item(string name, TimeSpan prepTime, string description, float price, string imageURL, string spInst)
         {
             ID = Helpers.Utilities.GenerateGuid();
             Name = name;
@@ -32,6 +33,7 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
             Description = description;
             Price = price;
             ImageURL = imageURL;
+            SpecialInstructions = spInst;
         }
         #endregion
 
