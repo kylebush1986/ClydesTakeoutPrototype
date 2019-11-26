@@ -7,21 +7,21 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
 {
     public enum DrinkType
     {
+        None,
         Coke,
         Pepsi,
         Lemonade,
         Sprite,
         DrPepper,
         Water,
-        None
     }
 
     public enum Size
     {
+        None,
         Small,
         Medium,
         Large,
-        None
     }
     public class Drink : Item
     {

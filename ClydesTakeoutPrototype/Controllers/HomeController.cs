@@ -14,9 +14,10 @@ namespace ClydesTakeoutPrototype.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly DataContext _context;
+        //private readonly DataContext _context;
+        private readonly ILocalDataContext _context;
 
-        public HomeController(ILogger<HomeController> logger, DataContext context)
+        public HomeController(ILogger<HomeController> logger, ILocalDataContext context)
         {
             _logger = logger;
             _context = context;
@@ -40,26 +41,41 @@ namespace ClydesTakeoutPrototype.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login([Bind("Email,Password,ID")] User user)
+        public IActionResult Login([Bind("Email,Password,ID")] User currentUser)
         {
             if (ModelState.IsValid)
             {
-                User account = _context.User.FirstOrDefault(u => u.Email == user.Email && u.Password == user.Password);
-                return RedirectToAction("Index", "Home");
+                var dbUser = (from user in _context.UserDB
+                              where (user.Email == currentUser.Email)
+                              select user).FirstOrDefault();
+                if (/*dbUser != null &&*/ dbUser?.Password == currentUser.Password)
+                {
+                    return RedirectToAction("Index", "Menus");
+                }
             }
-            return View(user);
+            return View(currentUser);
         }
 
         [HttpPost]
-        public async Task<IActionResult> SignUp([Bind("FirstName,LastName,Email,Password")] User user)
+        public IActionResult SignUp([Bind("FirstName,LastName,Email,Password")] User newUser)
         {
             if (ModelState.IsValid)
             {
-                await _context.User.AddAsync(user);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Index", "Home");
+                var dbUser = (from user in _context.UserDB
+                             where (user.Email == newUser.Email)
+                             select user).FirstOrDefault();
+                if (dbUser == null)
+                {
+                    _context.UserDB.Add(newUser);
+                    _context.SaveDatabase(_context.UserDB);
+                    return RedirectToAction("Login", "Home");
+                }
+                else
+                {
+                    return RedirectToAction("Login", "Home");
+                }
             }
-            return View(user);
+            return View(newUser);
         }
 
         public IActionResult Privacy()

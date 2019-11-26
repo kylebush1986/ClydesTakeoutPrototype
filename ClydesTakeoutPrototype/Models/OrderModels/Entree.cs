@@ -5,29 +5,15 @@ using System.Threading.Tasks;
 
 namespace ClydesTakeoutPrototype.Models.OrderModels
 {
-    public enum EntreeCategories
-    {
-        Fried,
-        Grilled,
-        Salad
-    }
     public class Entree : Item
     {
-        #region Properties
-        public EntreeCategories Category { get; set; }
-        public ulong SideID { get; set; }
-        public ulong DrinkID { get; set; }
-        #endregion
-
-
+       
         #region Constructors
         public Entree() : base() { }
-        public Entree(EntreeCategories cat, ulong sID, ulong dID, string name, TimeSpan prepTime, string description, float price, string imageURL, string spInst)
+        public Entree(string name, TimeSpan prepTime, string description, float price, string imageURL, string spInst)
             : base(name, prepTime, description, price, imageURL, spInst)
         {
-            Category = cat;
-            SideID = sID;
-            DrinkID = dID;
+            
         }
 
         #endregion

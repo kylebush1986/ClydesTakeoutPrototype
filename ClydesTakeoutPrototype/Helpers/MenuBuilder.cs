@@ -19,7 +19,6 @@ namespace ClydesTakeoutPrototype.Helpers
                     Description = "A Clyde's favorite! This delicious 1/4 lb burger comes topped with lettuce, tomato, onion, and a pickle. Sure to delight any burger lover.",
                     ImageURL = "burger.jpeg",
                     Price = 7.50f,
-                    Category = EntreeCategories.Grilled
                 },
 
                 new Entree()
@@ -28,7 +27,6 @@ namespace ClydesTakeoutPrototype.Helpers
                     Description = "Grilled Red Bird chicken breast, lettuce, tomato, red onion, pickle, avocado garlic aioli.",
                     ImageURL = "chicken_sandwich.jpg",
                     Price = 8.50f,
-                    Category = EntreeCategories.Grilled
                 },
 
                 new Entree()
@@ -37,7 +35,6 @@ namespace ClydesTakeoutPrototype.Helpers
                     Description = "Sourdough, bacon, leaf-lettuce, tomato, avocado garlic aioli.",
                     ImageURL = "blt.jpg",
                     Price = 7.50f,
-                    Category = EntreeCategories.Grilled
                 },
 
                 new Side()
@@ -81,7 +78,6 @@ namespace ClydesTakeoutPrototype.Helpers
                     Name = "Coke",
                     Price = 2.0f,
                     Type = DrinkType.Coke,
-                    DrinkSize = Size.Small
                 },
 
                 new Drink()
@@ -89,7 +85,6 @@ namespace ClydesTakeoutPrototype.Helpers
                     Name = "Dr. Pepper",
                     Price = 2.0f,
                     Type = DrinkType.DrPepper,
-                    DrinkSize = Size.Small
                 },
 
                 new Drink()
@@ -97,7 +92,6 @@ namespace ClydesTakeoutPrototype.Helpers
                     Name = "Lemonade",
                     Price = 1.5f,
                     Type = DrinkType.Lemonade,
-                    DrinkSize = Size.Small
                 }
             };
         }

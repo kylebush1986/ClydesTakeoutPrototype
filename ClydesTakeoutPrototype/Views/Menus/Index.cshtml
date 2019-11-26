@@ -5,8 +5,24 @@
 @{
 }
 
+<style>
+    .checkout-button {
+        background-color: white;
+        bottom: 0;
+        width: 100%;
+        position: fixed;
+        z-index: 1;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+</style>
+
+
 <h1>Menu</h1>
 <hr />
+<div class="row checkout-button">
+    <a class="btn btn-outline-primary" asp-controller="Orders" asp-action="Index">Check Out</a>
+</div>
 <h2>Entrees</h2>
 <hr />
 @foreach (var item in Model.Items)
@@ -21,7 +37,7 @@
                 <h3>@item.Name</h3> @*item name*@
                 <p>@item.Description</p>
                 <p>Price: $@item.Price</p>
-                <a class="btn btn-outline-primary" asp-controller="Menus" asp-action="MenuItem" asp-route-id="@item.ID">View Item</a>
+                <a class="btn btn-outline-primary" asp-controller="Menus" asp-action="EntreeItem" asp-route-id="@item.ID">View Item</a>
             </div>
         </div>
     }
@@ -42,7 +58,7 @@
                 <h3>@item.Name</h3> @*item name*@
                 <p>@item.Description</p>
                 <p>Price: $@item.Price</p>
-                <a class="btn btn-outline-primary" asp-controller="Menus" asp-action="MenuItem" asp-route-id="@item.ID">View Item</a>
+                <a class="btn btn-outline-primary" asp-controller="Menus" asp-action="SideItem" asp-route-id="@item.ID">View Item</a>
             </div>
         </div>
     }
@@ -60,7 +76,7 @@
                 <h5>@item.Name</h5> @*item name*@
                 <p>@item.Description</p>
                 <p>Price: $@item.Price</p>
-                <a class="btn btn-outline-primary" asp-controller="Menus" asp-action="MenuItem" asp-route-id="@item.ID">Add to Order</a>
+                <a class="btn btn-outline-primary" asp-controller="Menu" asp-action="DrinkItem" asp-route-id="@item.ID">View Item</a>
             </div>
         </div>
     }

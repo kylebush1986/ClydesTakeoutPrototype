@@ -33,8 +33,13 @@ namespace ClydesTakeoutPrototype.Helpers
 
         internal static ulong GenerateGuid()
         {
+            ulong id = 0;
             string guid = Utilities.GetSessionKey();
-            return Utilities.GenerateDjb264Hash(guid);
+            while(id == 0)
+            {
+                id = Utilities.GenerateDjb264Hash(guid);
+            }
+            return id;
         }
     }
 }

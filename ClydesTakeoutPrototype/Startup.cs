@@ -27,8 +27,10 @@ namespace ClydesTakeoutPrototype
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<DataContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("DataContext")));
+            //services.AddDbContext<DataContext>(options =>
+            //        options.UseSqlServer(Configuration.GetConnectionString("DataContext")));
+
+            services.AddSingleton<ILocalDataContext, LocalDataContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

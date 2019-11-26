@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,21 +8,19 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using ClydesTakeoutPrototype.Models.MenuModels;
+using ClydesTakeoutPrototype.Models.SystemModels;
+using ClydesTakeoutPrototype.Models.OrderModels;
 using ClydesTakeoutPrototype.Helpers;
 
 namespace ClydesTakeoutPrototype
 {
     public class Program
     {
-        public static Menu ClydesMenu { get; set; }
+        public static Menu ClydesMenu = new Menu();
         public static void Main(string[] args)
         {
-
-            ClydesMenu = new Menu()
-            {
-                Items = MenuBuilder.MenuItems
-            };
-            
+            // Load Clyde's Menu if it exists. If not then build it and create a menu database.
+            ClydesMenu.Items = MenuBuilder.MenuItems;
             CreateHostBuilder(args).Build().Run();
         }
 
@@ -31,5 +30,6 @@ namespace ClydesTakeoutPrototype
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
     }
 }
