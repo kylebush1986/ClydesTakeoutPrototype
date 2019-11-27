@@ -46,10 +46,14 @@ namespace ClydesTakeoutPrototype.Controllers
         [HttpPost]
         public IActionResult AddEntreeToOrder([Bind("ID,Type,SpecialInstructions")] Entree entree)
         {
-            _context.UserDB.FirstOrDefault(u => u.ID == UserID).ActiveOrder.Items.Add(entree);
-            _context.SaveDatabase(_context.UserDB);
-
-            return RedirectToAction("SideItem", "Menus");
+            if (UserID != 0)
+            {
+                _context.UserDB.FirstOrDefault(u => u.ID == UserID).ActiveOrder.Items.Add(entree);
+                _context.SaveDatabase(_context.UserDB);
+                return RedirectToAction("SideItem", "Menus");
+            }
+            return RedirectToAction("Logout", "Account");
+            
         }
 
         [HttpPost]
@@ -86,10 +90,33 @@ namespace ClydesTakeoutPrototype.Controllers
         [HttpPost]
         public IActionResult AddDrinkToOrder([Bind("ID,Type,DrinkSize")] Drink drink)
         {
-            _context.UserDB.FirstOrDefault(u => u.ID == UserID).ActiveOrder.Items.Add(drink);
-            _context.SaveDatabase(_context.UserDB);
+            if (UserID != 0)
+            {
+                if (drink.ID == 0)
+                {
+                    Drink temp = _context.ItemDB.Where(i => i.GetType() == typeof(Drink)).Cast<Drink>().FirstOrDefault(s => s.Type == drink.Type);
+                    drink.ID = Helpers.Utilities.GenerateGuid();
+                    drink.Name = temp.Name;
+                    drink.PrepTime = temp.PrepTime;
+                    drink.Price = temp.Price;
 
-            return RedirectToAction("Index", "Menus");
+                    _context.UserDB.FirstOrDefault(u => u.ID == UserID).ActiveOrder.Items.Add(drink);
+                    _context.SaveDatabase(_context.UserDB);
+
+                    return RedirectToAction("DrinkItem", "Menus");
+                }
+                else
+                {
+                    drink.ID = Helpers.Utilities.GenerateGuid();
+
+                    _context.UserDB.FirstOrDefault(u => u.ID == UserID).ActiveOrder.Items.Add(drink);
+                    _context.SaveDatabase(_context.UserDB);
+
+                    return RedirectToAction("Index", "Menus");
+                }
+            }
+
+            return RedirectToAction("Logout", "Account");
         }
 
     }
