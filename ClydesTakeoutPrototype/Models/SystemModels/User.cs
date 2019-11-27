@@ -54,6 +54,17 @@ namespace ClydesTakeoutPrototype.Models.SystemModels
 
         #region Methods
 
+        public Order CommitActiveOrder()
+        {
+            if (ActiveOrder.Items.Any())
+            {
+                PendingOrders.Add(ActiveOrder);
+                ActiveOrder = null;
+                return PendingOrders.Last();
+            }
+            return null;
+        }
+
         #endregion
     }
 
