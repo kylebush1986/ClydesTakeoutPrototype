@@ -85,7 +85,7 @@ namespace ClydesTakeoutPrototype.Controllers
                 }
                 else
                 {
-                    return View(newUser); //RedirectToAction("Login", "Home");
+                    return View(newUser); 
                 }
             }
             return View(newUser);
