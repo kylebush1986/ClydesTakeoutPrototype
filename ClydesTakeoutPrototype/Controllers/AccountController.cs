@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using System.Text;
 using ClydesTakeoutPrototype.Data;
 using ClydesTakeoutPrototype.Models.SystemModels;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Session;
 
 namespace ClydesTakeoutPrototype.Controllers
 {
@@ -47,7 +50,12 @@ namespace ClydesTakeoutPrototype.Controllers
                     };
 
                     await HttpContext.SignInAsync(new ClaimsPrincipal(new ClaimsIdentity(claims, "login")));
-                    
+
+                    HttpContext.Session.Set("UserID", Encoding.ASCII.GetBytes(dbUser.ID.ToString()));
+
+                    HttpContext.Session.TryGetValue("UserID", out byte[] userID);
+                    ulong.TryParse(Encoding.ASCII.GetString(userID), out ulong uid);
+
                     return RedirectToAction("Index", "Menus");
                 }
             }
@@ -78,6 +86,9 @@ namespace ClydesTakeoutPrototype.Controllers
                         new Claim(ClaimTypes.NameIdentifier, newUser.ID.ToString()),
                         new Claim(ClaimTypes.Role, newUser.UserPermissions.ToString())
                     };
+
+                    HttpContext.Session.Set("UserID", Encoding.ASCII.GetBytes(newUser.ID.ToString()));
+                    
 
                     await HttpContext.SignInAsync(new ClaimsPrincipal(new ClaimsIdentity(claims, "login")));
 

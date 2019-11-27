@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Text;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc;
 using ClydesTakeoutPrototype.Models.OrderModels;
@@ -17,6 +18,13 @@ namespace ClydesTakeoutPrototype.Controllers
         private readonly ILogger<OrdersController> _logger;
         //private readonly DataContext _context;
         private readonly ILocalDataContext _context;
+        private ulong UserID { 
+            get {
+                HttpContext.Session.TryGetValue("UserID", out byte[] userID);
+                ulong.TryParse(Encoding.ASCII.GetString(userID), out ulong uid);
+                return uid;
+            } 
+        }
         
         public OrdersController(ILogger<OrdersController> logger, ILocalDataContext context)
         {
@@ -38,22 +46,32 @@ namespace ClydesTakeoutPrototype.Controllers
         [HttpPost]
         public IActionResult AddSideToOrder([Bind("ID,Type,SpecialInstructions")] Side side)
         {
-            if(side.ID == 0)
+            if (UserID != 0)
             {
-                Side temp = _context.ItemDB.Where(i => i.GetType() == typeof(Side)).Cast<Side>().FirstOrDefault(s => s.Type == side.Type);
-                side.ID = Helpers.Utilities.GenerateGuid();
-                side.Name = temp.Name;
-                side.PrepTime = temp.PrepTime;
-                side.Price = temp.Price;
+                if (side.ID == 0)
+                {
+                    Side temp = _context.ItemDB.Where(i => i.GetType() == typeof(Side)).Cast<Side>().FirstOrDefault(s => s.Type == side.Type);
+                    side.ID = Helpers.Utilities.GenerateGuid();
+                    side.Name = temp.Name;
+                    side.PrepTime = temp.PrepTime;
+                    side.Price = temp.Price;
 
+                    _context.UserDB.FirstOrDefault(u => u.ID == UserID).ActiveOrder.Items.Add(side);
+                    _context.SaveDatabase(_context.UserDB);
 
-                return RedirectToAction("DrinkItem", "Menus");
+                    return RedirectToAction("DrinkItem", "Menus");
+                }
+                else
+                {
+                    side.ID = Helpers.Utilities.GenerateGuid();
+
+                    _context.UserDB.FirstOrDefault(u => u.ID == UserID).ActiveOrder.Items.Add(side);
+                    _context.SaveDatabase(_context.UserDB);
+
+                    return RedirectToAction("Index", "Menus");
+                }
             }
-            else
-            {
-                side.ID = Helpers.Utilities.GenerateGuid();
-                return RedirectToAction("Index", "Menus");
-            }
+            return RedirectToAction("Logout", "Account");
         }
 
         [HttpPost]

@@ -26,14 +26,15 @@ namespace ClydesTakeoutPrototype.Models.SystemModels
         public string Password { get; set; }
         public ICollection<Order> PendingOrders { get; set; }
         public Permissions UserPermissions { get; set; }
-        public bool IsLoggedIn { get; set; }
         public Order ActiveOrder { get; set; }
         #endregion
 
         #region Constructors
         public User() {
             ID = Helpers.Utilities.GenerateGuid();
-            IsLoggedIn = false;
+            ActiveOrder = new Order();
+            ActiveOrder.User = this;
+            PendingOrders = new List<Order>();
         }
 
         public User(string firstName, string lastName, string email, string password, Permissions uPerm)
@@ -44,6 +45,9 @@ namespace ClydesTakeoutPrototype.Models.SystemModels
             Email = email;
             Password = Utilities.GenerateDjb264Hash(password).ToString();
             UserPermissions = uPerm;
+            PendingOrders = new List<Order>();
+            ActiveOrder = new Order();
+            ActiveOrder.User = this;
         }
 
         #endregion
