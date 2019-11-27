@@ -35,9 +35,9 @@ namespace ClydesTakeoutPrototype.Data
                 .HasMany(i => i.Items)
                 .WithOne();
 
-            builder.Entity<User>()
-                .HasMany(o => o.PendingOrders)
-                .WithOne();
+            //builder.Entity<User>()
+            //    .HasMany(o => o.PendingOrders)
+            //    .WithOne();
 
             base.OnModelCreating(builder);
         }
