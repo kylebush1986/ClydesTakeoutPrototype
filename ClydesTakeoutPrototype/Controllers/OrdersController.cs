@@ -21,8 +21,13 @@ namespace ClydesTakeoutPrototype.Controllers
         private ulong UserID { 
             get {
                 HttpContext.Session.TryGetValue("UserID", out byte[] userID);
-                ulong.TryParse(Encoding.ASCII.GetString(userID), out ulong uid);
-                return uid;
+                if (userID != null)
+                {
+                    ulong.TryParse(Encoding.ASCII.GetString(userID), out ulong uid);
+                    return uid;
+                }
+                else
+                    return 0;
             } 
         }
         

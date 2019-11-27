@@ -293,3 +293,6 @@ C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Account\Unauthorized.cshtml.g.cs
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Account\SignUp.cshtml.g.cs
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\ClydesTakeoutPrototype.MvcApplicationPartsAssemblyInfo.cache
+C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Data\ItemDB.json
+C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Data\OrderDB.json
+C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Data\UserDB.json
