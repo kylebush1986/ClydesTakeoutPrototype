@@ -60,7 +60,7 @@ namespace ClydesTakeoutPrototype.Models.SystemModels
             {
                 PendingOrders.Add(ActiveOrder.ID);
                 Order temp = ActiveOrder;
-                ActiveOrder = null;
+                ActiveOrder = new Order();
                 return temp;
             }
             return null;

@@ -58,6 +58,11 @@ namespace ClydesTakeoutPrototype.Controllers
         {
             if (UserID != 0)
             {
+                Entree temp = _context.ItemDB.Where(i => i.GetType() == typeof(Entree)).Cast<Entree>().FirstOrDefault(s => s.ID == entree.ID);
+                entree.ID = Helpers.Utilities.GenerateGuid();
+                entree.Name = temp.Name;
+                entree.PrepTime = temp.PrepTime;
+                entree.Price = temp.Price;
                 _context.UserDB.FirstOrDefault(u => u.ID == UserID).ActiveOrder.Items.Add(entree);
                 _context.SaveDatabase(_context.UserDB);
                 return RedirectToAction("SideItem", "Menus");
@@ -130,8 +135,13 @@ namespace ClydesTakeoutPrototype.Controllers
                 _context.SaveDatabase(_context.UserDB);
                 _context.SaveDatabase(_context.OrderDB);
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("OrderSuccess", "Orders");
             }
+            return View();
+        }
+
+        public IActionResult OrderSuccess()
+        {
             return View();
         }
     }
