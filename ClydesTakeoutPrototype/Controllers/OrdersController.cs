@@ -34,13 +34,16 @@ namespace ClydesTakeoutPrototype.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            Order activeOrder = _context.UserDB.FirstOrDefault(u => u.ID == UserID).ActiveOrder;
+            return View(activeOrder);
         }
 
         [HttpPost]
         public IActionResult AddEntreeToOrder([Bind("ID,Type,SpecialInstructions")] Entree entree)
         {
-            // Add Entree to Order
+            _context.UserDB.FirstOrDefault(u => u.ID == UserID).ActiveOrder.Items.Add(entree);
+            _context.SaveDatabase(_context.UserDB);
+
             return RedirectToAction("SideItem", "Menus");
         }
 
@@ -78,12 +81,11 @@ namespace ClydesTakeoutPrototype.Controllers
         [HttpPost]
         public IActionResult AddDrinkToOrder([Bind("ID,Type,DrinkSize")] Drink drink)
         {
+            _context.UserDB.FirstOrDefault(u => u.ID == UserID).ActiveOrder.Items.Add(drink);
+            _context.SaveDatabase(_context.UserDB);
+
             return RedirectToAction("Index", "Menus");
         }
 
-        public IActionResult Cart()
-        {
-            return View();
-        }
     }
 }
