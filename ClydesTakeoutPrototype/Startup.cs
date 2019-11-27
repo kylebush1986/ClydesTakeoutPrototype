@@ -6,7 +6,9 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Session;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -36,6 +38,14 @@ namespace ClydesTakeoutPrototype
 
             services.AddSingleton<ILocalDataContext, LocalDataContext>();
 
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options =>
+            {
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options =>
                 {
@@ -62,6 +72,9 @@ namespace ClydesTakeoutPrototype
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseSession();
+            //app.UseHttpContextItemsMiddleware();
 
             app.UseAuthentication();
             app.UseAuthorization();
