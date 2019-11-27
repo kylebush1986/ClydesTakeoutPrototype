@@ -41,5 +41,12 @@
 <div class="text-center">
     <h1 class="display-4">Welcome to Clyde's</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Et malesuada turpis egestas integer eget.</p>
-    <a class="btn btn-outline-light" asp-controller="Account" asp-action="Login">Login</a>
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <a class="btn btn-outline-light" asp-controller="Account" asp-action="Login">Login</a>
+    }
+    else
+    {
+        <a class="btn btn-outline-light" asp-controller="Menus" asp-action="Index">View Menu</a>
+    }
 </div>
