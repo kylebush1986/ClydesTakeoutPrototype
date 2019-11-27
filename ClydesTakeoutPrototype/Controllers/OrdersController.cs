@@ -16,7 +16,6 @@ namespace ClydesTakeoutPrototype.Controllers
         //private readonly DataContext _context;
         private readonly ILocalDataContext _context;
         
-        public static Order CurrentOrder { get; set; }
         public OrdersController(ILogger<OrdersController> logger, ILocalDataContext context)
         {
             _logger = logger;
@@ -29,21 +28,35 @@ namespace ClydesTakeoutPrototype.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddToOrder()
+        public IActionResult AddEntreeToOrder([Bind("ID,Type,SpecialInstructions")] Entree entree)
         {
-            if(CurrentOrder == null)
+            return RedirectToAction("Index", "Menus");
+        }
+
+        [HttpPost]
+        public IActionResult AddSideToOrder([Bind("ID,Type,SpecialInstructions")] Side side)
+        {
+            if(side.ID == 0)
             {
-                // Need to add user to Order on creation
-                CurrentOrder = new Order();
+                Side temp = _context.ItemDB.Where(i => i.GetType() == typeof(Side)).Cast<Side>().FirstOrDefault(s => s.Type == side.Type);
+                side.ID = Helpers.Utilities.GenerateGuid();
+                side.Name = temp.Name;
+                side.PrepTime = temp.PrepTime;
+                side.Price = temp.Price;
+
+
+                return RedirectToAction("DrinkItem", "Menus");
             }
-            ulong id = Convert.ToUInt64(Request.Form["ID"]);
-            var entree = Helpers.MenuBuilder.MenuItems.FirstOrDefault(x => x.ID == id);
-            var dID = Request.Form["DrinkID"];
-            var sID = Request.Form["SideID"];
-            CurrentOrder.Items.Add(entree);
-            
-           
-            // Return to the Menu
+            else
+            {
+                
+                return RedirectToAction("Index", "Menus");
+            }
+        }
+
+        [HttpPost]
+        public IActionResult AddDrinkToOrder([Bind("ID,Type,DrinkSize")] Drink drink)
+        {
             return RedirectToAction("Index", "Menus");
         }
 

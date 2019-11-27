@@ -1,9 +1,47 @@
-﻿@model ClydesTakeoutPrototype.Models.OrderModels.Drink
+﻿@using ClydesTakeoutPrototype.Models.OrderModels;
+@model ClydesTakeoutPrototype.Models.OrderModels.Drink
 
 @{
-    ViewData["Title"] = "DrinkItem";
+    ViewData["Title"] = "Drink";
+}
+@if (Model.ID != 0)
+{
+    <h1>@Model.Name</h1>
+    <hr />
+    <p>@Model.Description</p>
+    <p>Price: $@Model.Price</p>
+}
+@if (Model.ID == 0)
+{
+    <h1>Choose a Drink</h1>
 }
 
+<hr />
+<h4>Options</h4>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Orders" asp-action="AddSideToOrder">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="ID" class="form-control" data-id="@Model.ID" hidden />
+            @if (Model.ID == 0)
+            {
+                <div class="form-group">
+                    <label asp-for="Type" class="control-label"></label>
+                    @Html.DropDownListFor(o => o.Type, new SelectList(Enum.GetValues(typeof(DrinkType))))
+                </div>
+            }
+            <div class="form-group">
+                <label asp-for="DrinkSize" class="control-label"></label>
+                @Html.DropDownListFor(o => o.DrinkSize, new SelectList(Enum.GetValues(typeof(Size))))
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add to Order" class="btn btn-outline-primary" />
+                <a class="btn btn-outline-danger" asp-controller="Menus" asp-action="Index">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
 <h1>DrinkItem</h1>
 
 <h4>Drink</h4>

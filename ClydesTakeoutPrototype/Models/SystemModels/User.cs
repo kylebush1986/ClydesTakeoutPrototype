@@ -27,6 +27,7 @@ namespace ClydesTakeoutPrototype.Models.SystemModels
         public ICollection<Order> PendingOrders { get; set; }
         public Permissions UserPermissions { get; set; }
         public bool IsLoggedIn { get; set; }
+        public Order ActiveOrder { get; set; }
         #endregion
 
         #region Constructors

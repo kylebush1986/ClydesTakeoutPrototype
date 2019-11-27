@@ -24,7 +24,11 @@ namespace ClydesTakeoutPrototype.Controllers
 
         public IActionResult Index()
         {
-            return View(Program.ClydesMenu);
+            Menu menu = new Menu()
+            {
+                Items = _context.ItemDB
+            };
+            return View(menu);
         }
 
         public IActionResult EntreeItem(ulong id)
@@ -33,7 +37,17 @@ namespace ClydesTakeoutPrototype.Controllers
         }
         public IActionResult SideItem(ulong id)
         {
-            return View(_context.ItemDB.FirstOrDefault(x => x.ID == id));
+            if (id == 0)
+            {
+                return View(new Side()
+                {
+                    ID = 0
+                });
+            }
+            else
+            {
+                return View(_context.ItemDB.FirstOrDefault(x => x.ID == id));
+            }
         }
         public IActionResult DrinkItem(ulong id)
         {

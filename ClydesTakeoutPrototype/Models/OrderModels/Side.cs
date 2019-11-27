@@ -7,11 +7,11 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
 {
     public enum SideType
     {
+        None,
         Fries,
         OnionRings,
         Soup,
         Salad,
-        None
     }
     public class Side : Item
     {
