@@ -124,9 +124,6 @@ C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\Cl
 C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\ClydesTakeoutPrototype.Views.pdb
 C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\ClydesTakeoutPrototype.dll
 C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\ClydesTakeoutPrototype.pdb
-C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Employee\Index.cshtml.g.cs
-C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Home\Login.cshtml.g.cs
-C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Home\SignUp.cshtml.g.cs
 C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Menus\Index.cshtml.g.cs
 C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Orders\Index.cshtml.g.cs
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\appsettings.Development.json
@@ -283,9 +280,6 @@ C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\Cl
 C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Menus\SideItem.cshtml.g.cs
 C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Menus\DrinkItem.cshtml.g.cs
 C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Menus\EntreeItem.cshtml.g.cs
-C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Data\ItemDB.json
-C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Data\OrderDB.json
-C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Data\UserDB.json
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Data\ItemDB.json
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Data\OrderDB.json
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Data\UserDB.json
@@ -297,3 +291,12 @@ C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Account\Logout.cshtml.g.cs
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Account\Unauthorized.cshtml.g.cs
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Account\SignUp.cshtml.g.cs
+C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Account\Logout.cshtml.g.cs
+C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Account\SignUp.cshtml.g.cs
+C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Account\Unauthorized.cshtml.g.cs
+C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Data\ItemDB.json
+C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Data\OrderDB.json
+C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Data\UserDB.json
+C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Employee\OrderDetails.cshtml.g.cs
+C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Employee\Index.cshtml.g.cs

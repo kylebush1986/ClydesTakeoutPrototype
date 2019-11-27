@@ -81,7 +81,7 @@ namespace ClydesTakeoutPrototype.Controllers
 
                     await HttpContext.SignInAsync(new ClaimsPrincipal(new ClaimsIdentity(claims, "login")));
 
-                    return RedirectToAction("Login", "Menu");
+                    return RedirectToAction("Index", "Menus");
                 }
                 else
                 {

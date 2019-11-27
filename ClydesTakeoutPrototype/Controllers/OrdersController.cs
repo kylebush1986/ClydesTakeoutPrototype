@@ -32,7 +32,8 @@ namespace ClydesTakeoutPrototype.Controllers
         [HttpPost]
         public IActionResult AddEntreeToOrder([Bind("ID,Type,SpecialInstructions")] Entree entree)
         {
-            return RedirectToAction("Index", "Menus");
+            // Add Entree to Order
+            return RedirectToAction("SideItem", "Menus");
         }
 
         [HttpPost]

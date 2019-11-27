@@ -1,7 +1,9 @@
-﻿@model ClydesTakeoutPrototype.Models.OrderModels.Order
+﻿@using ClydesTakeoutPrototype.Models.OrderModels
+@model ClydesTakeoutPrototype.Models.OrderModels.Order
 
 @{
     ViewData["Title"] = "Order";
+    Order temp = new Order();
 }
 
 <h1>Order</h1>
@@ -9,7 +11,7 @@
 <div>
     <h4>Order</h4>
     <hr />
-    @foreach(var item in Model.Items)
+    @foreach(var item in temp.Items)
     {
         <div>
             <div>
