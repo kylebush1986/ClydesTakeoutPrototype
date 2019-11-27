@@ -28,56 +28,6 @@ namespace ClydesTakeoutPrototype.Controllers
             return View();
         }
 
-        //public IActionResult Login()
-        //{
-        //    User user = new User();
-        //    return View(user);
-        //}
-
-        //public IActionResult SignUp()
-        //{
-        //    User user = new User();
-        //    return View(user);
-        //}
-
-        //[HttpPost]
-        //public IActionResult Login([Bind("Email,Password,ID")] User currentUser)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var dbUser = (from user in _context.UserDB
-        //                      where (user.Email == currentUser.Email)
-        //                      select user).FirstOrDefault();
-        //        if (/*dbUser != null &&*/ dbUser?.Password == currentUser.Password)
-        //        {
-        //            return RedirectToAction("Index", "Menus");
-        //        }
-        //    }
-        //    return View(currentUser);
-        //}
-
-        //[HttpPost]
-        //public IActionResult SignUp([Bind("FirstName,LastName,Email,Password")] User newUser)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var dbUser = (from user in _context.UserDB
-        //                     where (user.Email == newUser.Email)
-        //                     select user).FirstOrDefault();
-        //        if (dbUser == null)
-        //        {
-        //            _context.UserDB.Add(newUser);
-        //            _context.SaveDatabase(_context.UserDB);
-        //            return RedirectToAction("Login", "Home");
-        //        }
-        //        else
-        //        {
-        //            return RedirectToAction("Login", "Home");
-        //        }
-        //    }
-        //    return View(newUser);
-        //}
-
         public IActionResult Privacy()
         {
             return View();

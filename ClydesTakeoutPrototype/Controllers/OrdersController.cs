@@ -51,7 +51,7 @@ namespace ClydesTakeoutPrototype.Controllers
             }
             else
             {
-                
+                side.ID = Helpers.Utilities.GenerateGuid();
                 return RedirectToAction("Index", "Menus");
             }
         }
