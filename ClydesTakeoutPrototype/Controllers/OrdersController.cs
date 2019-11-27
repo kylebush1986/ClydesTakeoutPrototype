@@ -6,6 +6,7 @@ using System.Text;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc;
 using ClydesTakeoutPrototype.Models.OrderModels;
+using ClydesTakeoutPrototype.Models.SystemModels;
 using ClydesTakeoutPrototype.Data;
 using ClydesTakeoutPrototype.Helpers;
 using Microsoft.AspNetCore.Authorization;
@@ -39,13 +40,30 @@ namespace ClydesTakeoutPrototype.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            float subTotal = 0f;
+            Order activeOrder = _context.UserDB.FirstOrDefault(u => u.ID == UserID).ActiveOrder;
+            foreach(var item in activeOrder.Items)
+            {
+                subTotal += item.Price;
+            }
+            activeOrder.CalculateTotal(subTotal);
+            activeOrder.PickupTime = DateTime.Now.AddMinutes(15);
+            _context.UserDB.FirstOrDefault(u => u.ID == UserID).ActiveOrder = activeOrder;
+            _context.SaveDatabase(_context.UserDB);
+            return View(activeOrder);
         }
 
         [HttpPost]
         public IActionResult AddEntreeToOrder([Bind("ID,Type,SpecialInstructions")] Entree entree)
         {
-            return RedirectToAction("Index", "Menus");
+            if (UserID != 0)
+            {
+                _context.UserDB.FirstOrDefault(u => u.ID == UserID).ActiveOrder.Items.Add(entree);
+                _context.SaveDatabase(_context.UserDB);
+                return RedirectToAction("SideItem", "Menus");
+            }
+            return RedirectToAction("Logout", "Account");
+            
         }
 
         [HttpPost]
@@ -82,11 +100,38 @@ namespace ClydesTakeoutPrototype.Controllers
         [HttpPost]
         public IActionResult AddDrinkToOrder([Bind("ID,Type,DrinkSize")] Drink drink)
         {
-            return RedirectToAction("Index", "Menus");
+            if (UserID != 0)
+            {
+                Drink temp = _context.ItemDB.Where(i => i.GetType() == typeof(Drink)).Cast<Drink>().FirstOrDefault(s => s.Type == drink.Type);
+                drink.ID = Helpers.Utilities.GenerateGuid();
+                drink.Name = temp.Name;
+                drink.PrepTime = temp.PrepTime;
+                drink.Price = temp.Price;
+
+                _context.UserDB.FirstOrDefault(u => u.ID == UserID).ActiveOrder.Items.Add(drink);
+                _context.SaveDatabase(_context.UserDB);
+
+                return RedirectToAction("Index", "Menus");
+            }
+
+            return RedirectToAction("Logout", "Account");
         }
 
-        public IActionResult Cart()
+        [HttpPost]
+        public IActionResult SubmitOrder([Bind("ID")] Order finalOrder)
         {
+            if (UserID != 0)
+            {
+                User user = _context.UserDB.FirstOrDefault(u => u.ID == UserID);
+                _context.OrderDB.Add(user.CommitActiveOrder());
+                _context.UserDB.RemoveAll(x => x.ID == UserID);
+                _context.UserDB.Add(user);
+
+                _context.SaveDatabase(_context.UserDB);
+                _context.SaveDatabase(_context.OrderDB);
+
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
     }

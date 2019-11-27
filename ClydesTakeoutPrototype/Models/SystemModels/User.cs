@@ -24,9 +24,9 @@ namespace ClydesTakeoutPrototype.Models.SystemModels
         public string Email { get; set; }
         [DataType(DataType.Password)]
         public string Password { get; set; }
-        public ICollection<Order> PendingOrders { get; set; }
         public Permissions UserPermissions { get; set; }
         public Order ActiveOrder { get; set; }
+        public List<ulong> PendingOrders { get; set; }
         #endregion
 
         #region Constructors
@@ -34,7 +34,7 @@ namespace ClydesTakeoutPrototype.Models.SystemModels
             ID = Helpers.Utilities.GenerateGuid();
             ActiveOrder = new Order();
             ActiveOrder.UserID = ID;
-            PendingOrders = new List<Order>();
+            PendingOrders = new List<ulong>();
         }
 
         public User(string firstName, string lastName, string email, string password, Permissions uPerm)
@@ -45,9 +45,9 @@ namespace ClydesTakeoutPrototype.Models.SystemModels
             Email = email;
             Password = Utilities.GenerateDjb264Hash(password).ToString();
             UserPermissions = uPerm;
-            PendingOrders = new List<Order>();
             ActiveOrder = new Order();
             ActiveOrder.UserID = ID;
+            PendingOrders = new List<ulong>();
         }
 
         #endregion
@@ -58,9 +58,10 @@ namespace ClydesTakeoutPrototype.Models.SystemModels
         {
             if (ActiveOrder.Items.Any())
             {
-                PendingOrders.Add(ActiveOrder);
+                PendingOrders.Add(ActiveOrder.ID);
+                Order temp = ActiveOrder;
                 ActiveOrder = null;
-                return PendingOrders.Last();
+                return temp;
             }
             return null;
         }

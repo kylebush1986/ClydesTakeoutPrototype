@@ -13,14 +13,14 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\Views\_ViewImports.cshtml"
+#line 1 "C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\Views\_ViewImports.cshtml"
 using ClydesTakeoutPrototype;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\Views\_ViewImports.cshtml"
+#line 2 "C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\Views\_ViewImports.cshtml"
 using ClydesTakeoutPrototype.Models;
 
 #line default
@@ -78,7 +78,7 @@ using ClydesTakeoutPrototype.Models;
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "acf8fa8f5a18675e6b6daf1c4dfeeaa7c9773c428979", async() => {
                 WriteLiteral("\r\n    <meta charset=\"utf-8\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\r\n    <title>");
 #nullable restore
-#line 6 "C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\Views\Shared\_Layout.cshtml"
+#line 6 "C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\Views\Shared\_Layout.cshtml"
       Write(ViewData["Title"]);
 
 #line default

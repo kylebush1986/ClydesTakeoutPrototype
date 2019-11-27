@@ -1,4 +1,5 @@
-﻿@model ClydesTakeoutPrototype.Models.OrderModels.Order
+﻿@using ClydesTakeoutPrototype.Models.OrderModels
+@model ClydesTakeoutPrototype.Models.OrderModels.Order
 
 @{
     ViewData["Title"] = "Order";
@@ -12,16 +13,32 @@
     @foreach(var item in Model.Items)
     {
         <div>
-            <div>
-                <h3>@item.Name</h3>
-            </div>
-            <div>
-                <p>@item.Price</p>
-            </div>
+            <h5>@item.Name</h5>
+            <p>@item.Price</p>
         </div>
+        <hr />
     }
+    <h5>Total: $@Model.Total</h5>
 </div>
 <div>
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     <a asp-action="Index">Back to List</a>
 </div>
+
+<form asp-controller="Orders" asp-action="SubmitOrder">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input asp-for="ID" class="form-control" data-id="@Model.ID" hidden />
+    <div class="form-group">
+        <label asp-for="PickupTime" class="control-label">Pickup Time</label>
+        <textarea asp-for="PickupTime" class="form-control"></textarea>
+    </div>
+    @*<div class="form-group">
+            <label asp-for="PickupTime" class="control-label"></label>
+            @Html.DropDownListFor(o => o.PickupTime, new SelectList(Enum.GetValues(typeof(DrinkType))))
+        </div>*@
+
+    <div class="form-group">
+        <input type="submit" value="Add to Order" class="btn btn-outline-primary" />
+        <a class="btn btn-outline-danger" asp-controller="Menus" asp-action="Index">Cancel</a>
+    </div>
+</form>

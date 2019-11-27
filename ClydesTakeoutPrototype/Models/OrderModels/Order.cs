@@ -16,6 +16,7 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
         [DataType(DataType.Currency)]
         public float Total { get; set; }
         public ICollection<Item> Items { get; set; }
+        
 
         #endregion
 
