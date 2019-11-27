@@ -74,7 +74,6 @@ namespace ClydesTakeoutPrototype
             app.UseRouting();
 
             app.UseSession();
-            //app.UseHttpContextItemsMiddleware();
 
             app.UseAuthentication();
             app.UseAuthorization();

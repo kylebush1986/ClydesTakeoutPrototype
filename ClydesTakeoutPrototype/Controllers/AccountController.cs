@@ -53,9 +53,6 @@ namespace ClydesTakeoutPrototype.Controllers
 
                     HttpContext.Session.Set("UserID", Encoding.ASCII.GetBytes(dbUser.ID.ToString()));
 
-                    HttpContext.Session.TryGetValue("UserID", out byte[] userID);
-                    ulong.TryParse(Encoding.ASCII.GetString(userID), out ulong uid);
-
                     return RedirectToAction("Index", "Menus");
                 }
             }
@@ -88,7 +85,6 @@ namespace ClydesTakeoutPrototype.Controllers
                     };
 
                     HttpContext.Session.Set("UserID", Encoding.ASCII.GetBytes(newUser.ID.ToString()));
-                    
 
                     await HttpContext.SignInAsync(new ClaimsPrincipal(new ClaimsIdentity(claims, "login")));
 
