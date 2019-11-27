@@ -11,7 +11,7 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
     {
         #region Properties
         public ulong ID { get; set; }
-        public User User { get; set; }
+        public ulong UserID { get; set; }
         public DateTime PickupTime { get; set; }
         [DataType(DataType.Currency)]
         public float Total { get; set; }
@@ -29,12 +29,12 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
         {
             ID = Helpers.Utilities.GenerateGuid();
             Items = new List<Item>();
-            User = user;
+            UserID = user.ID;
         }
         public Order(User user, DateTime ptime, float subTotal, ICollection<Item> items)
         {
             ID = Helpers.Utilities.GenerateGuid();
-            User = user;
+            UserID = user.ID;
             PickupTime = ptime;
             CalculateTotal(subTotal);
             Items = items;
