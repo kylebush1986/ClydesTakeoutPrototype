@@ -4,12 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using ClydesTakeoutPrototype.Models.MenuModels;
 using ClydesTakeoutPrototype.Models.OrderModels;
 using ClydesTakeoutPrototype.Data;
 
 namespace ClydesTakeoutPrototype.Controllers
 {
+    [Authorize]
     public class MenusController : Controller
     {
         private readonly ILogger<MenusController> _logger;
@@ -22,6 +24,7 @@ namespace ClydesTakeoutPrototype.Controllers
             _context = context;
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View(Program.ClydesMenu);

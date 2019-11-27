@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using ClydesTakeoutPrototype.Models.OrderModels;
 using ClydesTakeoutPrototype.Data;
 using ClydesTakeoutPrototype.Helpers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ClydesTakeoutPrototype.Controllers
 {
+    [Authorize]
     public class OrdersController : Controller
     {
         private readonly ILogger<OrdersController> _logger;
@@ -41,7 +43,7 @@ namespace ClydesTakeoutPrototype.Controllers
             var dID = Request.Form["DrinkID"];
             var sID = Request.Form["SideID"];
             CurrentOrder.Items.Add(entree);
-            
+
            
             // Return to the Menu
             return RedirectToAction("Index", "Menus");

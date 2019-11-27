@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -15,6 +17,8 @@ namespace ClydesTakeoutPrototype
 {
     public class Startup
     {
+        //public const string CookieScheme = "UserAuthentication";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -31,6 +35,14 @@ namespace ClydesTakeoutPrototype
             //        options.UseSqlServer(Configuration.GetConnectionString("DataContext")));
 
             services.AddSingleton<ILocalDataContext, LocalDataContext>();
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.AccessDeniedPath = "/account/unauthorized";
+                    options.LoginPath = "/account/login";
+                    options.LogoutPath = "/account/logout";
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +63,7 @@ namespace ClydesTakeoutPrototype
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

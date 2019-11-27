@@ -245,7 +245,6 @@ C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\ClydesTakeoutPrototype.csprojAssemblyReference.cache
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\staticwebassets\ClydesTakeoutPrototype.StaticWebAssets.Manifest.cache
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\staticwebassets\ClydesTakeoutPrototype.StaticWebAssets.xml
-C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\ClydesTakeoutPrototype.MvcApplicationPartsAssemblyInfo.cache
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\ClydesTakeoutPrototype.RazorAssemblyInfo.cache
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\ClydesTakeoutPrototype.RazorAssemblyInfo.cs
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\ClydesTakeoutPrototype.AssemblyInfoInputs.cache
@@ -259,7 +258,6 @@ C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Home\SignUp.cshtml.g.cs
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Menus\Index.cshtml.g.cs
-C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Menus\MenuItem.cshtml.g.cs
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Orders\Index.cshtml.g.cs
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_Layout.cshtml.g.cs
@@ -289,3 +287,13 @@ C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\Cl
 C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Data\ItemDB.json
 C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Data\OrderDB.json
 C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Data\UserDB.json
+C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Data\ItemDB.json
+C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Data\OrderDB.json
+C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Data\UserDB.json
+C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Menus\DrinkItem.cshtml.g.cs
+C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Menus\EntreeItem.cshtml.g.cs
+C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Menus\SideItem.cshtml.g.cs
+C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\ClydesTakeoutPrototype.MvcApplicationPartsAssemblyInfo.cache
+C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Account\Login.cshtml.g.cs
+C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Account\Logout.cshtml.g.cs
+C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Account\Unauthorized.cshtml.g.cs
