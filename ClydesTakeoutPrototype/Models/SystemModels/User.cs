@@ -33,7 +33,7 @@ namespace ClydesTakeoutPrototype.Models.SystemModels
         public User() {
             ID = Helpers.Utilities.GenerateGuid();
             ActiveOrder = new Order();
-            ActiveOrder.User = this;
+            ActiveOrder.UserID = ID;
             PendingOrders = new List<Order>();
         }
 
@@ -47,7 +47,7 @@ namespace ClydesTakeoutPrototype.Models.SystemModels
             UserPermissions = uPerm;
             PendingOrders = new List<Order>();
             ActiveOrder = new Order();
-            ActiveOrder.User = this;
+            ActiveOrder.UserID = ID;
         }
 
         #endregion
