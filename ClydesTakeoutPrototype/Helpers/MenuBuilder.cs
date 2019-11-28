@@ -82,6 +82,20 @@ namespace ClydesTakeoutPrototype.Helpers
 
                 new Drink()
                 {
+                    Name = "Pepsi",
+                    Price = 2.0f,
+                    Type = DrinkType.Pepsi,
+                },
+
+                new Drink()
+                {
+                    Name = "Water",
+                    Price = 0.0f,
+                    Type = DrinkType.Water,
+                },
+
+                new Drink()
+                {
                     Name = "Dr. Pepper",
                     Price = 2.0f,
                     Type = DrinkType.DrPepper,
@@ -92,6 +106,13 @@ namespace ClydesTakeoutPrototype.Helpers
                     Name = "Lemonade",
                     Price = 1.5f,
                     Type = DrinkType.Lemonade,
+                },
+
+                new Drink()
+                {
+                    Name = "Sprite",
+                    Price = 1.5f,
+                    Type = DrinkType.Sprite,
                 }
             };
         }

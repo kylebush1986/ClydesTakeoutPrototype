@@ -14,15 +14,11 @@
     {
         <div>
             <h5>@item.Name</h5>
-            <p>@item.Price</p>
+            <p>@item.Price.ToString("c2")</p>
         </div>
         <hr />
     }
-<h5>Total: $@Math.Round(Model.Total)</h5>
-</div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="Index">Back to List</a>
+<h5>Total: @Model.Total.ToString("c2")</h5>
 </div>
 
 <form asp-controller="Orders" asp-action="SubmitOrder">
@@ -38,7 +34,7 @@
         </div>*@
 
     <div class="form-group">
-        <input type="submit" value="Add to Order" class="btn btn-outline-primary" />
+        <input type="submit" value="Submit Order" class="btn btn-outline-primary" />
         <a class="btn btn-outline-danger" asp-controller="Menus" asp-action="Index">Cancel</a>
     </div>
 </form>

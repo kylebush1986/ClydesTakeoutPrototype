@@ -6,6 +6,37 @@
 }
 
 <style>
+    .center {
+        text-align: center;
+        vertical-align: middle;
+        line-height: 40px;
+    }
+    .menu-header {
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/images/clydes.jpg);
+        min-height: 100%;
+        background-position: center;
+        background-size: cover;
+        color: white;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 90px;
+    }
+    .menu-section {
+        background: WhiteSmoke;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li.item-list { 
+        background: white; 
+    }
+
+    li:nth-child(even).item-list { 
+        background: WhiteSmoke; 
+    }
+
     .checkout-button {
         background-color: white;
         bottom: 0;
@@ -14,70 +45,101 @@
         z-index: 1;
         padding-top: 10px;
         padding-bottom: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    #cart-icon {
+        max-width:50px;
     }
 </style>
 
-
-<h1>Menu</h1>
-<hr />
-<div class="row checkout-button">
-    <a class="btn btn-outline-primary" asp-controller="Orders" asp-action="Index">Check Out</a>
+<div class="menu-header py-4">
+    <h1>Menu</h1>
 </div>
-<h2>Entrees</h2>
-<hr />
-@foreach (var item in Model.Items)
-{
-    if (item.GetType() == typeof(Entree))
-    {
-        <div class="row py-2">
-            <div class="col-3">
-                <img class="img-fluid" src="~/images/menu_items/@item.ImageURL" />
-            </div>
-            <div class="col-9">
-                <h3>@item.Name</h3> @*item name*@
-                <p>@item.Description</p>
-                <p>Price: $@item.Price</p>
-                <a class="btn btn-outline-primary" asp-controller="Menus" asp-action="EntreeItem" asp-route-id="@item.ID">View Item</a>
-            </div>
-        </div>
-    }
-}
 
-<hr />
-<h2>Sides</h2>
-<hr />
-@foreach (var item in Model.Items)
-{
-    if (item.GetType() == typeof(Side))
-    {
-        <div class="row py-2">
-            <div class="col-3">
-                <img class="img-fluid" src="~/images/menu_items/@item.ImageURL" />
-            </div>
-            <div class="col-9">
-                <h3>@item.Name</h3> @*item name*@
-                <p>@item.Description</p>
-                <p>Price: $@item.Price</p>
-                <a class="btn btn-outline-primary" asp-controller="Menus" asp-action="SideItem" asp-route-id="@item.ID">View Item</a>
-            </div>
-        </div>
-    }
-}
 
-<hr />
-<h2>Drinks</h2>
-<hr />
-@foreach (var item in Model.Items)
-{
-    if (item.GetType() == typeof(Drink))
+<div class="row checkout-button">
+    <div class="col-12">
+        <img class="img-fluid" id="cart-icon" style="padding-right: 10px;" src="~/images/icons/shopping-cart.png" />
+        <a class="btn btn-outline-primary" asp-controller="Orders" asp-action="Index">Check Out</a>
+    </div>
+</div>
+
+
+<div class="menu-section">
+    <hr />
+    <h2 class="center">Entrees</h2>
+    <hr />
+</div>
+
+<ul>
+    @foreach (var item in Model.Items)
     {
-        <div class="row">
-            <div class="col-9">
-                <h5>@item.Name</h5> @*item name*@
-                <p>@item.Description</p>
-                <p>Price: $@item.Price</p>
-                <a class="btn btn-outline-primary" asp-controller="Menu" asp-action="DrinkItem" asp-route-id="@item.ID">View Item</a>
-            </div>
-        </div>
+        if (item.GetType() == typeof(Entree))
+        {
+            <li class="item-list">
+                <div class="row p-4">
+                    <div class="col-3">
+                        <img class="img-fluid" src="~/images/menu_items/@item.ImageURL" />
+                    </div>
+                    <div class="col-9">
+                        <h3>@item.Name</h3>
+                        <hr />
+                        <p>@item.Description</p>
+                        <p>Price: @item.Price.ToString("c2")</p>
+                        <a class="btn btn-outline-primary" asp-controller="Menus" asp-action="EntreeItem" asp-route-id="@item.ID">View Item</a>
+                    </div>
+                </div>
+            </li>
+        }
     }
-}
+</ul>
+
+<div class="menu-section">
+    <hr />
+    <h2 class="center">Sides</h2>
+    <hr />
+</div>
+<ul>
+    @foreach (var item in Model.Items)
+    {
+        if (item.GetType() == typeof(Side))
+        {
+            <li class="item-list">
+                <div class="row p-4">
+                    <div class="col-3">
+                        <img class="img-fluid" src="~/images/menu_items/@item.ImageURL" />
+                    </div>
+                    <div class="col-9">
+                        <h3>@item.Name</h3>
+                        <hr />
+                        <p>@item.Description</p>
+                        <p>Price: @item.Price.ToString("c2")</p>
+                        <a class="btn btn-outline-primary" asp-controller="Menus" asp-action="SideItem" asp-route-id="@item.ID">View Item</a>
+                    </div>
+                </div>
+            </li>
+        }
+    }
+</ul>
+<div class="menu-section">
+    <hr />
+    <h2 class="center">Drinks</h2>
+    <hr />
+</div>
+<div class="row p-4">
+    @foreach (var item in Model.Items)
+    {
+        if (item.GetType() == typeof(Drink))
+        {
+            <div class="col-4 p-4">
+                <h5>@item.Name</h5>
+                <hr />
+                <p>@item.Description</p>
+                <p>Price: @item.Price.ToString("c2")</p>
+                <a class="btn btn-outline-primary" asp-controller="Menus" asp-action="DrinkItem" asp-route-id="@item.ID">View Item</a>
+            </div>
+        }
+    }
+</div>

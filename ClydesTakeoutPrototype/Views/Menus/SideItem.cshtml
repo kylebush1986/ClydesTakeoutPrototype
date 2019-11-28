@@ -20,8 +20,6 @@
     <h1>Choose a Side</h1>
 }
 <hr />
-<h4>Options</h4>
-
 <div class="row">
     <div class="col-md-4">
         <form asp-controller="Orders" asp-action="AddSideToOrder">
@@ -30,7 +28,7 @@
             @if (Model.ID == 0)
             {
                 <div class="form-group">
-                    <label asp-for="Type" class="control-label"></label>
+                    <label asp-for="Type" class="control-label">Side</label>
                     @Html.DropDownListFor(o => o.Type, new SelectList(Enum.GetValues(typeof(SideType))))
                 </div>
             }

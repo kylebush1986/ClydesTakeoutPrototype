@@ -9,7 +9,7 @@
     <h1>@Model.Name</h1>
     <hr />
     <p>@Model.Description</p>
-    <p>Price: $@Model.Price</p>
+    <p>Price: $@Model.Price.ToString("c2")</p>
 }
 @if (Model.ID == 0)
 {
