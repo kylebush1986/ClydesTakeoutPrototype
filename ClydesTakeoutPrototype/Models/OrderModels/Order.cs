@@ -48,6 +48,28 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
             float taxRate = 1.0825f;
             Total = subTotal * taxRate;
         }
+
+        public List<DateTime> GetTimeIntervals(DateTime start, DateTime end, TimeSpan interval)
+        {
+            //Your list of intervals
+            List<DateTime> intervals = new List<DateTime>();
+
+            //Rounds your start time to the nearest Interval
+            start = RoundUp(start, interval);
+
+            //Begin incrementing until you have reached your end Date
+            while (start <= end)
+            {
+                intervals.Add(start);
+                start = start.Add(interval);
+            }
+            //Returns your Intervals
+            return intervals;
+        }
+        DateTime RoundUp(DateTime dt, TimeSpan d)
+        {
+            return new DateTime(((dt.Ticks + d.Ticks - 1) / d.Ticks) * d.Ticks);
+        }
         #endregion
     }
 }
