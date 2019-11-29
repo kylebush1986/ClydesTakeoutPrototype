@@ -20,6 +20,10 @@
         vertical-align: middle;
         line-height: 90px;
     }
+    #delete-icon {
+        width: 100%;/*35px;*/
+        cursor: pointer;
+    }
 </style>
 
 <div class="menu-header py-4">
@@ -43,8 +47,13 @@
             <div class="col-6">
                 <p>@item.Name</p>
             </div>
-            <div class="col-6">
+            <div class="col-5">
                 <p>@item.Price.ToString("c2")</p>
+            </div>
+            <div class="col-1">
+                <a asp-action="RemoveItemFromOrder" asp-route-id="@item.ID" id="@item.ID">
+                    <img src="@Url.Content("~/images/icons/delete.png")" style="width: 20px;" />
+                </a>
             </div>
         </div>
         <hr />
@@ -77,3 +86,6 @@
         <a class="btn btn-outline-danger" asp-controller="Menus" asp-action="Index">Cancel</a>
     </div>
 </form>
+
+<script>
+</script>

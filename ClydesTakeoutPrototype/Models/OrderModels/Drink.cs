@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace ClydesTakeoutPrototype.Models.OrderModels
 {
@@ -26,7 +27,9 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
     public class Drink : Item
     {
         #region Properties
+        [Display(Name = "Drink Type")]
         public DrinkType Type { get; set; }
+        [Display(Name = "Drink Size")]
         public Size DrinkSize { get; set; }
         #endregion
 
