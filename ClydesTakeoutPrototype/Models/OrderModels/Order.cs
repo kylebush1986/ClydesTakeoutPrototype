@@ -67,6 +67,17 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
             //Returns your Intervals
             return intervals;
         }
+
+        public string ItemListAsString()
+        {
+            string items = ""; 
+            foreach(Item i in Items)
+            {
+                items += i.Name + "\n";
+            }
+            return items;
+        }
+
         DateTime RoundUp(DateTime dt, TimeSpan d)
         {
             return new DateTime(((dt.Ticks + d.Ticks - 1) / d.Ticks) * d.Ticks);

@@ -50,18 +50,49 @@ namespace ClydesTakeoutPrototype.Controllers
 
         public IActionResult OrderReady(ulong id)
         {
-            _context.OrderDB.Remove(_context.OrderDB.FirstOrDefault(u => u.ID == id));
+            Order order = _context.OrderDB.SingleOrDefault(o => o.ID == id);
+            _context.OrderDB.Remove(_context.OrderDB.FirstOrDefault(o => o.ID == id));
             _context.SaveDatabase(_context.OrderDB);
+
             // Send message telling user their order is ready for pickup
+            string[] emailArgs = CreateOrderReadyEmail(_context.UserDB.FirstOrDefault(u => u.ID == order.UserID), order);
+            NotificationService.SendEmail(_context.UserDB.FirstOrDefault(u => u.ID == order.UserID)?.Email, emailArgs[0], emailArgs[1]);
+
             return RedirectToAction("Index");
         }
 
         public IActionResult RejectOrder(ulong id)
         {
+            Order order = _context.OrderDB.SingleOrDefault(o => o.ID == id);
             _context.OrderDB.Remove(_context.OrderDB.FirstOrDefault(u => u.ID == id));
             _context.SaveDatabase(_context.OrderDB);
             // Send message telling user their order has been rejected
+            string[] emailArgs = CreateOrderRejectedEmail(_context.UserDB.FirstOrDefault(u => u.ID == order.UserID), order);
+            NotificationService.SendEmail(_context.UserDB.FirstOrDefault(u => u.ID == order.UserID)?.Email, emailArgs[0], emailArgs[1]);
             return RedirectToAction("Index");
+        }
+
+        private string[] CreateOrderReadyEmail(User user, Order order)
+        {
+            string[] emailArgs = {
+                "Your Order is Ready For Pickup!",
+                $"Hi {user.FirstName}," +
+                $"\nYour order scheduled for {order.PickupTime} is ready for pickup!\n" +
+                $"Order Number: {order.ID}\n" +
+                $"Items: \n" +
+                $"{order.ItemListAsString()}"
+            };
+            return emailArgs;
+        }
+
+        private string[] CreateOrderRejectedEmail(User user, Order order)
+        {
+            string[] emailArgs = {
+                "Your Order has been Rejected",
+                $"Hi {user.FirstName}," +
+                $"\nWe apologize, but your order has been rejected by Clyde's staff. "
+            };
+            return emailArgs;
         }
     }
 }
