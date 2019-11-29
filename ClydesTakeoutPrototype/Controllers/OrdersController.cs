@@ -75,6 +75,16 @@ namespace ClydesTakeoutPrototype.Controllers
             return RedirectToAction("Index", "Orders");
         }
 
+        public IActionResult CancelOrder()
+        {
+            if (UserID != null) {
+                int usrIndex = _context.UserDB.FindIndex(u => u.ID == UserID);
+                _context.UserDB[usrIndex].ActiveOrder = new Order();
+                return RedirectToAction("Index", "Home");
+            }
+            return RedirectToAction("Index", "Orders");
+        }
+
         [HttpPost]
         public IActionResult AddEntreeToOrder([Bind("ID,Type,SpecialInstructions")] Entree entree)
         {
