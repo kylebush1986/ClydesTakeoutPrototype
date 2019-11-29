@@ -40,8 +40,7 @@ namespace ClydesTakeoutPrototype.Controllers
         }
         public IActionResult Index()
         {
-            OrderDatabase orders = new OrderDatabase(_context.OrderDB);
-            return View(orders);
+            return View(_context.OrderDB);
         }
         public IActionResult OrderDetails(ulong id)
         {
