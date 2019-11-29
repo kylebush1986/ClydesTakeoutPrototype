@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace ClydesTakeoutPrototype.Controllers
 {
+    [Authorize(Roles = "Employee, Admin")]
     public class EmployeeController : Controller
     {
         private readonly ILogger<EmployeeController> _logger;

@@ -31,6 +31,7 @@ namespace ClydesTakeoutPrototype.Data
             }
             else
             {
+                CreateDefaultUsers();
                 SaveDatabase(UserDB);
             }
 
@@ -91,6 +92,12 @@ namespace ClydesTakeoutPrototype.Data
                 Console.WriteLine("SaveUsers: " + ex.Message);
                 throw;
             }
+        }
+
+        public void CreateDefaultUsers()
+        {
+            UserDB.Add(new User("admin", "", "admin@clydes.com", "test", Permissions.Admin));
+            UserDB.Add(new User("employee", "", "employee@clydes.com", "test", Permissions.Employee));
         }
     }
 }

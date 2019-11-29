@@ -41,7 +41,7 @@ namespace ClydesTakeoutPrototype.Controllers
                 var dbUser = (from user in _context.UserDB
                               where (user.Email == currentUser.Email)
                               select user).FirstOrDefault();
-                if (dbUser?.Password == currentUser.Password)
+                if (dbUser?.Password == Helpers.Utilities.GenerateDjb264Hash(currentUser.Password).ToString())
                 {
                     var claims = new List<Claim>
                     {
@@ -75,6 +75,7 @@ namespace ClydesTakeoutPrototype.Controllers
                               select user).FirstOrDefault();
                 if (dbUser == null)
                 {
+                    newUser.Password = Helpers.Utilities.GenerateDjb264Hash(newUser.Password).ToString();
                     _context.UserDB.Add(newUser);
                     _context.SaveDatabase(_context.UserDB);
 

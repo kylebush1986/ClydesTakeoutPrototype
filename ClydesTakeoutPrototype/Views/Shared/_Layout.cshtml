@@ -21,6 +21,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Menus" asp-action="Index">Menu</a>
                         </li>
+                        @if (User.HasClaim("http://schemas.microsoft.com/ws/2008/06/identity/claims/role", "Employee") || User.HasClaim("http://schemas.microsoft.com/ws/2008/06/identity/claims/role", "Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="Index">Orders</a>
+                            </li>
+                        }
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">

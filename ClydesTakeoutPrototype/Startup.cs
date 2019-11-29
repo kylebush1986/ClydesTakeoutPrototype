@@ -52,6 +52,7 @@ namespace ClydesTakeoutPrototype
                     options.AccessDeniedPath = "/account/unauthorized";
                     options.LoginPath = "/account/login";
                     options.LogoutPath = "/account/logout";
+                    options.Cookie.HttpOnly = true;
                 });
         }
 
