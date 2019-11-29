@@ -28,12 +28,12 @@
             {
                 <div class="form-group">
                     <label asp-for="Type" class="control-label"></label>
-                    @Html.DropDownListFor(o => o.Type, new SelectList(Enum.GetValues(typeof(DrinkType))))
+                    @Html.DropDownListFor(o => o.Type, new SelectList(Enum.GetValues(typeof(DrinkType))), "Select Drink", new { required = "required", onchange = "checkSelection(this)" })
                 </div>
             }
             <div class="form-group">
                 <label asp-for="DrinkSize" class="control-label"></label>
-                @Html.DropDownListFor(o => o.DrinkSize, new SelectList(Enum.GetValues(typeof(Size))))
+                @Html.DropDownListFor(o => o.DrinkSize, new SelectList(Enum.GetValues(typeof(Size))), "Select Size")
             </div>
             <div class="form-group">
                 <input type="submit" value="Add to Order" class="btn btn-outline-primary" />
@@ -42,3 +42,14 @@
         </form>
     </div>
 </div>
+
+<script>
+    function checkSelection(input) {
+        if (input.selectedIndex != 1) {
+            document.getElementById('DrinkSize').required = true;
+        }
+        else {
+            document.getElementById('DrinkSize').required = false;
+        }
+    }
+</script>

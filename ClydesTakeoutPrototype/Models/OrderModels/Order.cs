@@ -12,6 +12,7 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
         #region Properties
         public ulong ID { get; set; }
         public ulong UserID { get; set; }
+        [Display(Name = "Pickup Time")]
         public DateTime PickupTime { get; set; }
         [DataType(DataType.Currency)]
         public float Total { get; set; }

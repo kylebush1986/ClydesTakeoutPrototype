@@ -81,7 +81,7 @@
     <input asp-for="ID" class="form-control" data-id="@Model.ID" hidden />
     <div class="form-group">
             <label asp-for="PickupTime" class="control-label"></label>
-            @Html.DropDownListFor(o => o.PickupTime, new SelectList(Model.GetTimeIntervals(DateTime.Today.AddHours(11),DateTime.Today.AddHours(21),new TimeSpan(0,15,0))), "Select Pickup Time")
+            @Html.DropDownListFor(o => o.PickupTime, new SelectList(Model.GetTimeIntervals(DateTime.Today.AddHours(11),DateTime.Today.AddHours(21),new TimeSpan(0,15,0))), "Select Pickup Time", new { required = "required" })
         </div>
 
     <div class="form-group">

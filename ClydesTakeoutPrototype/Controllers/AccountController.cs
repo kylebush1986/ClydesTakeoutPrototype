@@ -107,7 +107,7 @@ namespace ClydesTakeoutPrototype.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public IActionResult Unauthorized()
+        public new IActionResult Unauthorized()
         {
             return View();
         }
