@@ -144,6 +144,7 @@ namespace ClydesTakeoutPrototype.Controllers
                 drink.Name = temp.Name;
                 drink.PrepTime = temp.PrepTime;
                 drink.Price = temp.Price;
+                drink.AddDrinkToSpcInst();
 
                 _context.UserDB.FirstOrDefault(u => u.ID == UserID).ActiveOrder.Items.Add(drink);
                 _context.SaveDatabase(_context.UserDB);
