@@ -33,10 +33,13 @@
 <div>
     <hr />
     <div class="row pt-1">
-        <div class="col-6">
+        <div class="col-3">
             <h3>Items</h3>
         </div>
-        <div class="col-6">
+        <div class="col-5">
+            <h3>Special Instructions</h3>
+        </div>
+        <div class="col-3">
             <h3>Price</h3>
         </div>
     </div>
@@ -44,10 +47,13 @@
     @foreach (var item in Model.Items)
     {
         <div class="row">
-            <div class="col-6">
+            <div class="col-3">
                 <p>@item.Name</p>
             </div>
             <div class="col-5">
+                <p>@item.SpecialInstructions</p>
+            </div>
+            <div class="col-3">
                 <p>@item.Price.ToString("c2")</p>
             </div>
             <div class="col-1">
@@ -59,10 +65,11 @@
         <hr />
     }
     <div class="row">
-        <div class="col-6">
+        <div class="col-3">
             <h5>Total </h5>
         </div>
-        <div class="col-6">
+        <div class="col-5"></div>
+        <div class="col-3">
             <h5>@Model.Total.ToString("c2")</h5>
         </div>
     </div>

@@ -45,6 +45,10 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
         #endregion
 
         #region Methods
+        public void AddDrinkToSpcInst()
+        {
+            SpecialInstructions = SpecialInstructions + " Drink Size: " + DrinkSize.ToString();
+        }
         
         #endregion
     }
