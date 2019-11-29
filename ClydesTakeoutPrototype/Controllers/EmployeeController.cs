@@ -41,11 +41,27 @@ namespace ClydesTakeoutPrototype.Controllers
         }
         public IActionResult Index()
         {
-            return View(_context.OrderDB);
+            return View(_context.OrderDB.OrderBy(x => x.PickupTime).ToList());
         }
         public IActionResult OrderDetails(ulong id)
         {
             return View(_context.OrderDB.FirstOrDefault(x => x.ID == id));
+        }
+
+        public IActionResult OrderReady(ulong id)
+        {
+            _context.OrderDB.Remove(_context.OrderDB.FirstOrDefault(u => u.ID == id));
+            _context.SaveDatabase(_context.OrderDB);
+            // Send message telling user their order is ready for pickup
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult RejectOrder(ulong id)
+        {
+            _context.OrderDB.Remove(_context.OrderDB.FirstOrDefault(u => u.ID == id));
+            _context.SaveDatabase(_context.OrderDB);
+            // Send message telling user their order has been rejected
+            return RedirectToAction("Index");
         }
     }
 }

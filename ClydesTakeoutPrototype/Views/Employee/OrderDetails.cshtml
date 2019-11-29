@@ -4,37 +4,67 @@
     ViewData["Title"] = "OrderDetails";
 }
 
+<style>
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li.item-list {
+        background: white;
+    }
+
+    li:nth-child(odd).item-list {
+        background: WhiteSmoke;
+    }
+</style>
+
 <h1>Order Details</h1>
 
-<h4>Order</h4>
+<h4>Order: @Model.ID</h4>
 <hr />
+<div class="row pt-4">
+    <div class="col-4">
+        <h4>Item</h4>
+    </div>
+    <div class="col-8">
+        <h4>Special Instructions</h4>
+    </div>
+</div>
+<hr />
+<ul>
+    @foreach (var item in Model.Items)
+    {
+        <li class="item-list">
+            <div class="row">
+                <div class="col-4">
+                    <p>@item.Name</p>
+                </div>
+                <div class="col-8">
+                    @{
+                        if (item.SpecialInstructions == null)
+                        {
+                            <p>None</p>
+                        }
+                        else
+                        {
+                            <p>@item.SpecialInstructions</p>
+                        }
+                    }
+                </div>
+            </div>
+       </li>
+    }
+</ul>
+
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="OrderDetails">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="ID" class="control-label"></label>
-                <input asp-for="ID" class="form-control" />
-                <span asp-validation-for="ID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PickupTime" class="control-label"></label>
-                <input asp-for="PickupTime" class="form-control" />
-                <span asp-validation-for="PickupTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Total" class="control-label"></label>
-                <input asp-for="Total" class="form-control" />
-                <span asp-validation-for="Total" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+    <div class="col-6">
+        <a class="btn btn-outline-primary" asp-controller="Employee" asp-action="OrderReady" asp-route-id="@Model.ID">Order Ready</a>
+        <a class="btn btn-outline-danger" asp-controller="Employee" asp-action="OrderDetails" asp-route-id="@Model.ID">Reject Order</a>
+    </div>
+    <div class="col-6">
+        <a style="float: right" class="btn btn-outline-primary" asp-controller="Employee" asp-action="Index">Back</a>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
