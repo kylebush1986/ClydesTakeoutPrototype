@@ -53,6 +53,28 @@ namespace ClydesTakeoutPrototype.Controllers
             return View(activeOrder);
         }
 
+        public IActionResult RemoveItemFromOrder(string id)
+        {
+            if (UserID != 0)
+            {
+                ulong.TryParse(id, out ulong itemID);
+                try
+                {
+                    int usrIndex = _context.UserDB.FindIndex(u => u.ID == UserID);
+                    User usr = _context.UserDB[usrIndex];
+                    List<Item> items = usr?.ActiveOrder.Items.ToList();
+                    items.RemoveAll(i => i.ID == itemID);
+                    usr.ActiveOrder.Items = items;
+                    _context.UserDB[usrIndex] = usr;
+                    _context.SaveDatabase(_context.UserDB);
+                }
+                catch
+                {
+                }
+            }
+            return RedirectToAction("Index", "Orders");
+        }
+
         [HttpPost]
         public IActionResult AddEntreeToOrder([Bind("ID,Type,SpecialInstructions")] Entree entree)
         {

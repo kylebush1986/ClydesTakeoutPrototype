@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace ClydesTakeoutPrototype.Models.OrderModels
 {
@@ -16,6 +17,7 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
     public class Side : Item
     {
         #region Properties
+        [Display(Name = "Side Selection")]
         public SideType Type { get; set; }
         #endregion
 
