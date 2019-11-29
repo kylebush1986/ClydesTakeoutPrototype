@@ -111,6 +111,8 @@ namespace ClydesTakeoutPrototype.Controllers
                 if (side.ID == 0)
                 {
                     Side temp = _context.ItemDB.Where(i => i.GetType() == typeof(Side)).Cast<Side>().FirstOrDefault(s => s.Type == side.Type);
+                    if (temp == null)
+                        return RedirectToAction("DrinkItem", "Menus");
                     side.ID = Helpers.Utilities.GenerateGuid();
                     side.Name = temp.Name;
                     side.PrepTime = temp.PrepTime;
@@ -140,6 +142,8 @@ namespace ClydesTakeoutPrototype.Controllers
             if (UserID != 0)
             {
                 Drink temp = _context.ItemDB.Where(i => i.GetType() == typeof(Drink)).Cast<Drink>().FirstOrDefault(s => s.Type == drink.Type);
+                if (temp == null)
+                    return RedirectToAction("Index", "Menus");
                 drink.ID = Helpers.Utilities.GenerateGuid();
                 drink.Name = temp.Name;
                 drink.PrepTime = temp.PrepTime;

@@ -8,28 +8,28 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
 {
     public enum DrinkType
     {
-        None,
-        Coke,
-        Pepsi,
-        Lemonade,
-        Sprite,
-        DrPepper,
-        Water,
+        None = 1,
+        Coke = 2,
+        Pepsi = 3,
+        Lemonade = 4,
+        Sprite = 5, 
+        DrPepper = 6,
+        Water = 7,
     }
 
     public enum Size
     {
-        None,
-        Small,
-        Medium,
-        Large,
+        None = 1,
+        Small = 2,
+        Medium = 3,
+        Large = 4,
     }
     public class Drink : Item
     {
         #region Properties
-        [Display(Name = "Drink Type")]
+        [Display(Name = "Drink")]
         public DrinkType Type { get; set; }
-        [Display(Name = "Drink Size")]
+        [Display(Name = "Size")]
         public Size DrinkSize { get; set; }
         #endregion
 
