@@ -1,68 +1,73 @@
-﻿@model ClydesTakeoutPrototype.Models.OrderModels.Order
+﻿@using ClydesTakeoutPrototype.Data
+@model ClydesTakeoutPrototype.Models.OrderModels.OrderDatabase
 
 @{
     ViewData["Title"] = "Index";
 }
 
+<style>
+    .menu-header {
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/images/clydes.jpg);
+        min-height: 100%;
+        background-position: center;
+        background-size: cover;
+        color: white;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 90px;
+    }
 
-<h1>Orders</h1>
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
 
-<div>
-    <h4>Order</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ID)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ID)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.PickupTime)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.PickupTime)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Total)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Total)
-        </dd>
-    </dl>
-</div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="Index">Back to List</a>
+    li.item-list { 
+        background: white; 
+    }
+
+    li:nth-child(odd).item-list { 
+        background: WhiteSmoke; 
+    }
+</style>
+
+<div class="menu-header py-4">
+    <h1>Orders</h1>
 </div>
 
-@*@model List<ClydesTakeoutPrototype.Models.OrderModels.Order>
-
-@{
-    ViewData["Title"] = "Employee View";
-}
-
-<h1>Employee View</h1>
-
-@foreach (var order in Model)
-{
-    <div>
-        <h4>@order.ID</h4>
-        <hr />
-        @foreach (var item in order.Items)
-        {
-            <div>
-                <div>
-                    <h4>@item.Name</h4>
+<div class="row pt-4">
+    <div class="col-3">
+        <h4>Order Id</h4>
+    </div>
+    <div class="col-3">
+        <h4>Pickup Time</h4>
+    </div>
+    <div class="col-3">
+        <h4>Price</h4>
+    </div>
+    <div class="col-3">
+        <h4>Select</h4>
+    </div>
+</div>
+<hr />
+<ul>
+    @foreach (var order in Model.AllOrders)
+    {
+        <li class="item-list">
+            <div class="row py-2">
+                <div class="col-3">
+                    <p>@order.ID</p>
                 </div>
-                <div>
+                <div class="col-3">
                     <p>@order.PickupTime</p>
                 </div>
+                <div class="col-3">
+                    <p>@order.Total.ToString("c2")</p>
+                </div>
+                <div class="col-3">
+                    <a class="btn btn-outline-primary" asp-controller="Employee" asp-action="OrderDetails" asp-route-id="@order.ID">View Order</a>
+                </div>
             </div>
-        }
-    </div>
-}
-<div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="Index">Back to List</a>
-</div>*@
+        </li>
+    }
+</ul>

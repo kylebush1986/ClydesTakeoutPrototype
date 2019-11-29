@@ -4,19 +4,16 @@
     ViewData["Title"] = "EntreeItem";
 }
 
-<img class="img-fluid" src="~/images/menu_items/@Model.ImageURL" />
-<h1>@Model.Name</h1>
-
-
-<hr />
-<p>@Model.Description</p>
-<p>Price: $@Model.Price</p>
-
-<hr />
-<h4>Options</h4>
-    
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-4">
+        <img class="img-fluid" src="~/images/menu_items/@Model.ImageURL" />
+    </div>
+    <div class="col-8">
+        <h1>@Model.Name</h1>
+        <p>@Model.Description</p>
+        <p>Price: @Model.Price.ToString("c2")</p>
+        <hr />
+        <h4>Options</h4>
         <form asp-controller="Orders" asp-action="AddEntreeToOrder">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input asp-for="ID" class="form-control" data-id="@Model.ID" hidden />

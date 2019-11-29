@@ -123,11 +123,12 @@ namespace ClydesTakeoutPrototype.Controllers
         }
 
         [HttpPost]
-        public IActionResult SubmitOrder([Bind("ID")] Order finalOrder)
+        public IActionResult SubmitOrder([Bind("ID,PickupTime")] Order finalOrder)
         {
             if (UserID != 0)
             {
                 User user = _context.UserDB.FirstOrDefault(u => u.ID == UserID);
+                user.ActiveOrder.PickupTime = finalOrder.PickupTime;
                 _context.OrderDB.Add(user.CommitActiveOrder());
                 _context.UserDB.RemoveAll(x => x.ID == UserID);
                 _context.UserDB.Add(user);
@@ -144,5 +145,8 @@ namespace ClydesTakeoutPrototype.Controllers
         {
             return View();
         }
+
+       
+
     }
 }
