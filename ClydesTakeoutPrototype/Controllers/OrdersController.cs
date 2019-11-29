@@ -173,6 +173,9 @@ namespace ClydesTakeoutPrototype.Controllers
                 _context.SaveDatabase(_context.UserDB);
                 _context.SaveDatabase(_context.OrderDB);
 
+                string[] emailArgs = CreateSubmitOrderEmail(user, finalOrder);
+                NotificationService.SendEmail(user.Email, emailArgs[0], emailArgs[1]);
+
                 return RedirectToAction("OrderSuccess", "Orders");
             }
             return View();
@@ -183,7 +186,17 @@ namespace ClydesTakeoutPrototype.Controllers
             return View();
         }
 
-       
+        private string[] CreateSubmitOrderEmail(User user, Order order)
+        {
+            return new string[]
+            {
+                "Your Order has been Received!",
+                $"{user.FirstName},\n" +
+                $"Your order set for {order.PickupTime} has been received!\n" +
+                $"Order Number: {order.ID}\n" +
+                $"You will receive an email notification when your order is complete."
+            };
+        }
 
     }
 }
