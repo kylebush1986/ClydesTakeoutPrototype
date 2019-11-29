@@ -1,5 +1,6 @@
 ﻿@using ClydesTakeoutPrototype.Data
-@model ClydesTakeoutPrototype.Models.OrderModels.OrderDatabase
+@using ClydesTakeoutPrototype.Models.OrderModels
+@model IEnumerable<Order>
 
 @{
     ViewData["Title"] = "Index";
@@ -51,7 +52,7 @@
 </div>
 <hr />
 <ul>
-    @foreach (var order in Model.AllOrders)
+    @foreach (var order in Model)
     {
         <li class="item-list">
             <div class="row py-2">
