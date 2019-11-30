@@ -45,6 +45,7 @@ namespace ClydesTakeoutPrototype.Controllers
                 {
                     var claims = new List<Claim>
                     {
+                        new Claim(ClaimTypes.Name, dbUser.FirstName),
                         new Claim(ClaimTypes.NameIdentifier, dbUser.ID.ToString()),
                         new Claim(ClaimTypes.Role, dbUser.UserPermissions.ToString())
                     };

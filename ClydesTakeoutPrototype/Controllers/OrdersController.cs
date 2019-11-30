@@ -77,7 +77,7 @@ namespace ClydesTakeoutPrototype.Controllers
 
         public IActionResult CancelOrder()
         {
-            if (UserID != null) {
+            if (UserID != 0) {
                 int usrIndex = _context.UserDB.FindIndex(u => u.ID == UserID);
                 _context.UserDB[usrIndex].ActiveOrder = new Order();
                 return RedirectToAction("Index", "Home");
@@ -209,8 +209,8 @@ namespace ClydesTakeoutPrototype.Controllers
             {
                 "Your Order has been Received!",
                 $"{user.FirstName},\n" +
-                $"Your order set for {order.PickupTime} has been received!\n" +
-                $"Order Number: {order.ID}\n" +
+                $"Your order set for {order.PickupTime} has been received!\n\n" +
+                $"Order Number: {order.ID}\n\n" +
                 $"You will receive an email notification when your order is complete."
             };
         }

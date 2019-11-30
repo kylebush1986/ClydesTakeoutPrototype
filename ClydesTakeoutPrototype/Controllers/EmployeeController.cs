@@ -45,7 +45,9 @@ namespace ClydesTakeoutPrototype.Controllers
         }
         public IActionResult OrderDetails(ulong id)
         {
-            return View(_context.OrderDB.FirstOrDefault(x => x.ID == id));
+            Order order = _context.OrderDB.FirstOrDefault(x => x.ID == id);
+            ViewData["CustomerName"] = _context.UserDB.SingleOrDefault(u => u.ID == order.UserID)?.GetFullName();
+            return View(order);
         }
 
         public IActionResult OrderReady(ulong id)
@@ -83,10 +85,11 @@ namespace ClydesTakeoutPrototype.Controllers
             string[] emailArgs = {
                 "Your Order is Ready For Pickup!",
                 $"Hi {user.FirstName}," +
-                $"\nYour order scheduled for {order.PickupTime} is ready for pickup!\n" +
-                $"Order Number: {order.ID}\n" +
+                $"\nYour order scheduled for {order.PickupTime} is ready for pickup!\n\n" +
+                $"Order Number: {order.ID}\n\n" +
                 $"Items: \n" +
-                $"{order.ItemListAsString()}"
+                $"{order.ItemListAsString()}\n\n" +
+                $"Your order total is ${order.Total.ToString("c2")}. Please be prepared to pay for your food at Clyde's when you arrive."
             };
             return emailArgs;
         }

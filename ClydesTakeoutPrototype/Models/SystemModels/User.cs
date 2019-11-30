@@ -61,10 +61,13 @@ namespace ClydesTakeoutPrototype.Models.SystemModels
                 PendingOrders.Add(ActiveOrder.ID);
                 Order temp = ActiveOrder;
                 ActiveOrder = new Order();
+                temp.UserID = ID;
                 return temp;
             }
             return null;
         }
+
+        public string GetFullName() => FirstName + " " + LastName;
 
         #endregion
     }
