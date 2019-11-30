@@ -31,7 +31,7 @@
                     @Html.DropDownListFor(o => o.Type, new SelectList(Enum.GetValues(typeof(DrinkType))), "Select Drink", new {required = "required", onchange = "checkSelection(this)" })
                 </div>
             }
-            <div class="form-group">
+            <div class="form-group" id="DrinkSizeGroup">
                 <label asp-for="DrinkSize" class="control-label"></label>
                 @Html.DropDownListFor(o => o.DrinkSize, new SelectList(Enum.GetValues(typeof(Size))), "Select Size")
             </div>
@@ -46,10 +46,12 @@
 <script>
     function checkSelection(input) {
         if (input.selectedIndex != 1) {
+            document.getElementById('DrinkSizeGroup').hidden = false;
             document.getElementById('DrinkSize').required = true;
         }
         else {
             document.getElementById('DrinkSize').required = false;
+            document.getElementById('DrinkSizeGroup').hidden = true;
         }
     }
 </script>

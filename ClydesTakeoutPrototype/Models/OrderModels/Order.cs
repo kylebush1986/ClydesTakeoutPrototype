@@ -12,6 +12,7 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
         #region Properties
         public ulong ID { get; set; }
         public ulong UserID { get; set; }
+        public string CustomerName { get; set; }
         [Display(Name = "Pickup Time")]
         public DateTime PickupTime { get; set; }
         [DataType(DataType.Currency)]
@@ -32,11 +33,13 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
             ID = Helpers.Utilities.GenerateGuid();
             Items = new List<Item>();
             UserID = user.ID;
+            CustomerName = user.GetFullName();
         }
         public Order(User user, DateTime ptime, float subTotal, ICollection<Item> items)
         {
             ID = Helpers.Utilities.GenerateGuid();
             UserID = user.ID;
+            CustomerName = user.GetFullName();
             PickupTime = ptime;
             CalculateTotal(subTotal);
             Items = items;

@@ -62,6 +62,7 @@ namespace ClydesTakeoutPrototype.Models.SystemModels
                 Order temp = ActiveOrder;
                 ActiveOrder = new Order();
                 temp.UserID = ID;
+                temp.CustomerName = GetFullName();
                 return temp;
             }
             return null;

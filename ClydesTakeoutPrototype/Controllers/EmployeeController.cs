@@ -45,9 +45,7 @@ namespace ClydesTakeoutPrototype.Controllers
         }
         public IActionResult OrderDetails(ulong id)
         {
-            Order order = _context.OrderDB.FirstOrDefault(x => x.ID == id);
-            ViewData["CustomerName"] = _context.UserDB.SingleOrDefault(u => u.ID == order.UserID)?.GetFullName();
-            return View(order);
+            return View(_context.OrderDB.FirstOrDefault(x => x.ID == id));
         }
 
         public IActionResult OrderReady(ulong id)

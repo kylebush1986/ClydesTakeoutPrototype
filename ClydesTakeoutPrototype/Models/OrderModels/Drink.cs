@@ -20,10 +20,9 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
 
     public enum Size
     {
-        None = 1,
-        Small = 2,
-        Medium = 3,
-        Large = 4,
+        Small = 1,
+        Medium = 2,
+        Large = 3,
     }
     public class Drink : Item
     {

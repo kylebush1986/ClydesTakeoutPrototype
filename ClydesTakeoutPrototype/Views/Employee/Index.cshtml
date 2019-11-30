@@ -37,16 +37,19 @@
 </div>
 
 <div class="row pt-4">
-    <div class="col-3">
+    <div class="col-2">
         <h4>Order Id</h4>
+    </div>
+    <div class="col-3">
+        <h4>Customer</h4>
     </div>
     <div class="col-3">
         <h4>Pickup Time</h4>
     </div>
-    <div class="col-3">
+    <div class="col-2">
         <h4>Price</h4>
     </div>
-    <div class="col-3">
+    <div class="col-2">
         <h4>Select</h4>
     </div>
 </div>
@@ -56,16 +59,19 @@
     {
         <li class="item-list">
             <div class="row py-2">
-                <div class="col-3">
+                <div class="col-2">
                     <p>@order.ID</p>
+                </div>
+                <div class="col-3">
+                    <p>@order.CustomerName</p>
                 </div>
                 <div class="col-3">
                     <p>@order.PickupTime</p>
                 </div>
-                <div class="col-3">
+                <div class="col-2">
                     <p>@order.Total.ToString("c2")</p>
                 </div>
-                <div class="col-3">
+                <div class="col-2">
                     <a class="btn btn-outline-primary" asp-controller="Employee" asp-action="OrderDetails" asp-route-id="@order.ID">View Order</a>
                 </div>
             </div>
