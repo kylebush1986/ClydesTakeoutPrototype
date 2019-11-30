@@ -51,12 +51,15 @@ namespace ClydesTakeoutPrototype.Controllers
         public IActionResult OrderReady(ulong id)
         {
             Order order = _context.OrderDB.SingleOrDefault(o => o.ID == id);
-            _context.OrderDB.Remove(_context.OrderDB.FirstOrDefault(o => o.ID == id));
-            _context.SaveDatabase(_context.OrderDB);
 
             // Send message telling user their order is ready for pickup
             string[] emailArgs = CreateOrderReadyEmail(_context.UserDB.FirstOrDefault(u => u.ID == order.UserID), order);
             NotificationService.SendEmail(_context.UserDB.FirstOrDefault(u => u.ID == order.UserID)?.Email, emailArgs[0], emailArgs[1]);
+
+            _context.OrderDB.Remove(_context.OrderDB.FirstOrDefault(o => o.ID == id));
+            _context.SaveDatabase(_context.OrderDB);
+
+            
 
             return RedirectToAction("Index");
         }
@@ -64,11 +67,14 @@ namespace ClydesTakeoutPrototype.Controllers
         public IActionResult RejectOrder(ulong id)
         {
             Order order = _context.OrderDB.SingleOrDefault(o => o.ID == id);
-            _context.OrderDB.Remove(_context.OrderDB.FirstOrDefault(u => u.ID == id));
-            _context.SaveDatabase(_context.OrderDB);
+
             // Send message telling user their order has been rejected
             string[] emailArgs = CreateOrderRejectedEmail(_context.UserDB.FirstOrDefault(u => u.ID == order.UserID), order);
             NotificationService.SendEmail(_context.UserDB.FirstOrDefault(u => u.ID == order.UserID)?.Email, emailArgs[0], emailArgs[1]);
+
+            _context.OrderDB.Remove(_context.OrderDB.FirstOrDefault(u => u.ID == id));
+            _context.SaveDatabase(_context.OrderDB);
+            
             return RedirectToAction("Index");
         }
 
