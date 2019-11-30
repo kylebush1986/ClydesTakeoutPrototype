@@ -28,7 +28,7 @@
             {
                 <div class="form-group">
                     <label asp-for="Type" class="control-label"></label>
-                    @Html.DropDownListFor(o => o.Type, new SelectList(Enum.GetValues(typeof(DrinkType))), "Select Drink", new { required = "required", onchange = "checkSelection(this)" })
+                    @Html.DropDownListFor(o => o.Type, new SelectList(Enum.GetValues(typeof(DrinkType))), "Select Drink", new {required = "required", onchange = "checkSelection(this)" })
                 </div>
             }
             <div class="form-group">

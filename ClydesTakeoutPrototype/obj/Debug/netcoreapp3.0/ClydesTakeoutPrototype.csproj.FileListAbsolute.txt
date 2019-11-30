@@ -294,9 +294,6 @@ C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\Cl
 C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Employee\OrderDetails.cshtml.g.cs
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Employee\OrderDetails.cshtml.g.cs
 C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Orders\OrderSuccess.cshtml.g.cs
-C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Data\ItemDB.json
-C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Data\OrderDB.json
-C:\Users\kyleb\Documents\CS3300 - Software Engineering\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Data\UserDB.json
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\obj\Debug\netcoreapp3.0\Razor\Views\Orders\OrderSuccess.cshtml.g.cs
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Data\ItemDB.json
 C:\GitHub\ClydesTakeoutPrototype\ClydesTakeoutPrototype\bin\Debug\netcoreapp3.0\Data\OrderDB.json

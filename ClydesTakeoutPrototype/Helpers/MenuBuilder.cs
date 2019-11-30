@@ -37,6 +37,14 @@ namespace ClydesTakeoutPrototype.Helpers
                     Price = 7.50f,
                 },
 
+                new Entree()
+                {
+                    Name = "Chicken Tenders",
+                    Description = "Fried ABF chicken with choice of dipping sauce - BBQ, buffalo, ranch, honey mustard, blue cheese.",
+                    ImageURL = "chicken_tenders.jpg",
+                    Price = 8.00f,
+                },
+
                 new Side()
                 {
                     Name = "Fries",
@@ -89,13 +97,6 @@ namespace ClydesTakeoutPrototype.Helpers
 
                 new Drink()
                 {
-                    Name = "Water",
-                    Price = 0.0f,
-                    Type = DrinkType.Water,
-                },
-
-                new Drink()
-                {
                     Name = "Dr. Pepper",
                     Price = 2.0f,
                     Type = DrinkType.DrPepper,
@@ -113,7 +114,14 @@ namespace ClydesTakeoutPrototype.Helpers
                     Name = "Sprite",
                     Price = 1.5f,
                     Type = DrinkType.Sprite,
-                }
+                },
+
+                new Drink()
+                {
+                    Name = "Water",
+                    Price = 0.0f,
+                    Type = DrinkType.Water,
+                },
             };
         }
         public static List<Item> MenuItems { get; }

@@ -12,7 +12,8 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
         Coke = 2,
         Pepsi = 3,
         Lemonade = 4,
-        Sprite = 5, 
+        Sprite = 5,
+        [Display(Name = "Dr. Pepper")]
         DrPepper = 6,
         Water = 7,
     }
