@@ -125,7 +125,10 @@ namespace ClydesTakeoutPrototype.Controllers
                 }
                 else
                 {
-                    side.ID = Helpers.Utilities.GenerateGuid();
+                    Side temp = _context.ItemDB.Where(i => i.GetType() == typeof(Side)).Cast<Side>().FirstOrDefault(s => s.ID == side.ID);
+                    side.Name = temp.Name;
+                    side.PrepTime = temp.PrepTime;
+                    side.Price = temp.Price;
 
                     _context.UserDB.FirstOrDefault(u => u.ID == UserID).ActiveOrder.Items.Add(side);
                     _context.SaveDatabase(_context.UserDB);
@@ -141,14 +144,28 @@ namespace ClydesTakeoutPrototype.Controllers
         {
             if (UserID != 0)
             {
-                Drink temp = _context.ItemDB.Where(i => i.GetType() == typeof(Drink)).Cast<Drink>().FirstOrDefault(s => s.Type == drink.Type);
-                if (temp == null)
-                    return RedirectToAction("Index", "Menus");
-                drink.ID = Helpers.Utilities.GenerateGuid();
-                drink.Name = temp.Name;
-                drink.PrepTime = temp.PrepTime;
-                drink.Price = temp.Price;
-                drink.AddDrinkToSpcInst();
+                if (drink.ID == 0)
+                {
+                    Drink temp = _context.ItemDB.Where(i => i.GetType() == typeof(Drink)).Cast<Drink>().FirstOrDefault(s => s.Type == drink.Type);
+                    if (temp == null)
+                        return RedirectToAction("Index", "Menus");
+                    drink.ID = Helpers.Utilities.GenerateGuid();
+                    drink.Name = temp.Name;
+                    drink.PrepTime = temp.PrepTime;
+                    drink.Price = temp.Price;
+                    drink.AddDrinkToSpcInst();
+                }
+                else
+                {
+                    Drink temp = _context.ItemDB.Where(i => i.GetType() == typeof(Drink)).Cast<Drink>().FirstOrDefault(x => x.ID == drink.ID);
+                    if (temp == null)
+                        return RedirectToAction("Index", "Menus");
+                    drink.ID = Helpers.Utilities.GenerateGuid();
+                    drink.Name = temp.Name;
+                    drink.PrepTime = temp.PrepTime;
+                    drink.Price = temp.Price;
+                    drink.AddDrinkToSpcInst();
+                }
 
                 _context.UserDB.FirstOrDefault(u => u.ID == UserID).ActiveOrder.Items.Add(drink);
                 _context.SaveDatabase(_context.UserDB);
