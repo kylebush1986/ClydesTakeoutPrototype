@@ -5,8 +5,16 @@ using System.Threading.Tasks;
 
 namespace ClydesTakeoutPrototype.Helpers
 {
+    /// <summary>
+    /// Useful Helper functions
+    /// </summary>
     internal static class Utilities
     {
+        /// <summary>
+        /// Generate DJB2 hash from a string.
+        /// </summary>
+        /// <param name="inputString">A string</param>
+        /// <returns>A hash</returns>
         internal static ulong GenerateDjb264Hash(string inputString)
         {
             int hash = 5381;
@@ -25,16 +33,24 @@ namespace ClydesTakeoutPrototype.Helpers
             return (partOne * 4096) + partTwo;
         }
 
-        internal static string GetSessionKey()
+        /// <summary>
+        /// Get a new unique ID.
+        /// </summary>
+        /// <returns>A unique ID</returns>
+        internal static string GetNewUniqueID()
         {
             string returnValue = Guid.NewGuid().ToString("N");
             return returnValue;
         }
 
+        /// <summary>
+        /// Generate a GUID.
+        /// </summary>
+        /// <returns>A unique ID</returns>
         internal static ulong GenerateGuid()
         {
             ulong id = 0;
-            string guid = Utilities.GetSessionKey();
+            string guid = Utilities.GetNewUniqueID();
             while(id == 0)
             {
                 id = Utilities.GenerateDjb264Hash(guid);

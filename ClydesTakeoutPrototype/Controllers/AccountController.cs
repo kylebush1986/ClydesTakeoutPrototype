@@ -16,6 +16,9 @@ using Microsoft.AspNetCore.Session;
 
 namespace ClydesTakeoutPrototype.Controllers
 {
+    /// <summary>
+    /// Controller providing access to Account functions such as Login and Sign Up.
+    /// </summary>
     public class AccountController : Controller
     {
         private readonly ILogger<AccountController> _logger;
@@ -27,12 +30,21 @@ namespace ClydesTakeoutPrototype.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// GET Login View
+        /// </summary>
+        /// <returns>Login view</returns>
         public IActionResult Login()
         {
             User user = new User();
             return View(user);
         }
 
+        /// <summary>
+        /// POST User from Login View for validation and sign in.
+        /// </summary>
+        /// <param name="currentUser">User class containing credentials posted from Login View</param>
+        /// <returns>Redirect to Menu</returns>
         [HttpPost]
         public async Task<IActionResult> Login([Bind("Email,Password,ID")] User currentUser)
         {
@@ -60,12 +72,21 @@ namespace ClydesTakeoutPrototype.Controllers
             return View(currentUser);
         }
 
+        /// <summary>
+        /// GET Sign Up View to create an account.
+        /// </summary>
+        /// <returns>Sign Up view</returns>
         public IActionResult SignUp()
         {
             User user = new User();
             return View(user);
         }
 
+        /// <summary>
+        /// POST Sign Up to create a new User account.
+        /// </summary>
+        /// <param name="newUser">New User credentials</param>
+        /// <returns>Redirect to Menu</returns>
         [HttpPost]
         public async Task<IActionResult> SignUp([Bind("FirstName,LastName,Email,Password")] User newUser)
         {
@@ -100,6 +121,10 @@ namespace ClydesTakeoutPrototype.Controllers
             return View(newUser);
         }
 
+        /// <summary>
+        /// GET Logout action to sign out current user.
+        /// </summary>
+        /// <returns>Redirect to Home</returns>
         [Authorize]
         [HttpGet]
         public async Task<IActionResult> Logout()
@@ -108,6 +133,10 @@ namespace ClydesTakeoutPrototype.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        /// <summary>
+        /// GET Unauthorized view if user does not have permission to access a resource.
+        /// </summary>
+        /// <returns>Unauthorized View</returns>
         public new IActionResult Unauthorized()
         {
             return View();

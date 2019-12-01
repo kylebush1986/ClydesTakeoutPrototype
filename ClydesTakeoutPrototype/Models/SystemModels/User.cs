@@ -14,6 +14,10 @@ namespace ClydesTakeoutPrototype.Models.SystemModels
         Employee,
         Admin
     }
+
+    /// <summary>
+    /// A user.
+    /// </summary>
     public class User
     {
         #region Properties
@@ -53,7 +57,10 @@ namespace ClydesTakeoutPrototype.Models.SystemModels
         #endregion
 
         #region Methods
-
+        /// <summary>
+        /// Commit an Active Order to the order queue.
+        /// </summary>
+        /// <returns>The committed order</returns>
         public Order CommitActiveOrder()
         {
             if (ActiveOrder.Items.Any())
@@ -68,6 +75,10 @@ namespace ClydesTakeoutPrototype.Models.SystemModels
             return null;
         }
 
+        /// <summary>
+        /// Gets the full name of the user. 
+        /// </summary>
+        /// <returns>The full name</returns>
         public string GetFullName() => FirstName + " " + LastName;
 
         #endregion

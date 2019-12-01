@@ -9,6 +9,9 @@ namespace ClydesTakeoutPrototype.Helpers
 {
     static class MenuBuilder
     {
+        /// <summary>
+        /// Initializes MenuItems list with the default menu items. 
+        /// </summary>
         static MenuBuilder()
         {
             MenuItems = new List<Item>
@@ -124,8 +127,16 @@ namespace ClydesTakeoutPrototype.Helpers
                 },
             };
         }
+
+        /// <summary>
+        /// Default menu items list.
+        /// </summary>
         public static List<Item> MenuItems { get; }
 
+        /// <summary>
+        /// Convert all items in MenuItems to Item base class.
+        /// </summary>
+        /// <returns>A list of Items</returns>
         public static List<Item> GetListAsItem()
         {
             List<Item> items = new List<Item>();

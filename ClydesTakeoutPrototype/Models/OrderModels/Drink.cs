@@ -24,6 +24,10 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
         Medium = 2,
         Large = 3,
     }
+
+    /// <summary>
+    /// A Drink.
+    /// </summary>
     public class Drink : Item
     {
         #region Properties
@@ -45,9 +49,12 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Adds the Size property to the Special Instructions.
+        /// </summary>
         public void AddDrinkToSpcInst()
         {
-            SpecialInstructions = SpecialInstructions + " Drink Size: " + DrinkSize.ToString();
+            SpecialInstructions = " Drink Size: " + DrinkSize.ToString() + " - " + SpecialInstructions;
         }
         
         #endregion

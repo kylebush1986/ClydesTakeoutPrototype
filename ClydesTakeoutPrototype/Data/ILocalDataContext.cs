@@ -8,6 +8,9 @@ using ClydesTakeoutPrototype.Models.MenuModels;
 
 namespace ClydesTakeoutPrototype.Data
 {
+    /// <summary>
+    /// Interface specifying LocalDataContext Property and Method requirements. 
+    /// </summary>
     public interface ILocalDataContext
     {
         List<User> UserDB { get; set; }

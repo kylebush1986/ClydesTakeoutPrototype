@@ -11,6 +11,9 @@ using ClydesTakeoutPrototype.Data;
 
 namespace ClydesTakeoutPrototype.Controllers
 {
+    /// <summary>
+    /// A controller providing access to views on the home page.
+    /// </summary>
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -23,16 +26,28 @@ namespace ClydesTakeoutPrototype.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// GET Landing page View
+        /// </summary>
+        /// <returns>Home view</returns>
         public IActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// GET Privacy details View
+        /// </summary>
+        /// <returns>Privacy view</returns>
         public IActionResult Privacy()
         {
             return View();
         }
 
+        /// <summary>
+        /// GET Error view
+        /// </summary>
+        /// <returns>Error view</returns>
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

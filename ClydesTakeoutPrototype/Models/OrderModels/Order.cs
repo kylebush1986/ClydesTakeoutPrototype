@@ -7,6 +7,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ClydesTakeoutPrototype.Models.OrderModels
 {
+    /// <summary>
+    /// An order. 
+    /// </summary>
     public class Order
     {
         #region Properties
@@ -47,12 +50,23 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Calculate total order cost from subtotal.
+        /// </summary>
+        /// <param name="subTotal">The subtotal</param>
         public void CalculateTotal(float subTotal)
         {
             float taxRate = 1.0825f;
             Total = subTotal * taxRate;
         }
 
+        /// <summary>
+        /// Get the time intervals between a given start and end time with the specified intervals.
+        /// </summary>
+        /// <param name="start">The start time</param>
+        /// <param name="end">The end time</param>
+        /// <param name="interval">The interval</param>
+        /// <returns></returns>
         public List<DateTime> GetTimeIntervals(DateTime start, DateTime end, TimeSpan interval)
         {
             //Your list of intervals
@@ -71,6 +85,10 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
             return intervals;
         }
 
+        /// <summary>
+        /// Get a list of this orders item names as a string.
+        /// </summary>
+        /// <returns>String of order item names</returns>
         public string ItemListAsString()
         {
             string items = ""; 
@@ -81,6 +99,12 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
             return items;
         }
 
+        /// <summary>
+        /// Rounds a DateTime up to the nearest interval.
+        /// </summary>
+        /// <param name="dt">A DateTime</param>
+        /// <param name="d">A TimeSpan</param>
+        /// <returns>The rounded DateTime</returns>
         DateTime RoundUp(DateTime dt, TimeSpan d)
         {
             return new DateTime(((dt.Ticks + d.Ticks - 1) / d.Ticks) * d.Ticks);

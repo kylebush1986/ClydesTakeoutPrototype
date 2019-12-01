@@ -14,6 +14,10 @@ namespace ClydesTakeoutPrototype.Models.OrderModels
         Soup,
         Salad,
     }
+
+    /// <summary>
+    /// A side.
+    /// </summary>
     public class Side : Item
     {
         #region Properties

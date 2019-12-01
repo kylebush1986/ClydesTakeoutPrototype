@@ -33,10 +33,17 @@ namespace ClydesTakeoutPrototype
         {
             services.AddControllersWithViews();
 
+            #region Persistent Data Storage
+            /* Due to connection issues with the localdb file in the project over pushes, pulls, and merges 
+            the localdb is not currently set up and the subsequent LocalDataContext handles persistent
+            storage requirements. */
+
             //services.AddDbContext<DataContext>(options =>
             //        options.UseSqlServer(Configuration.GetConnectionString("DataContext")));
 
+            // A global singleton to provide persistant storage services using local file repositories. 
             services.AddSingleton<ILocalDataContext, LocalDataContext>();
+            #endregion
 
             services.AddDistributedMemoryCache();
 

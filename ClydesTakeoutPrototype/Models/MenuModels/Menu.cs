@@ -6,6 +6,9 @@ using ClydesTakeoutPrototype.Models.OrderModels;
 
 namespace ClydesTakeoutPrototype.Models.MenuModels
 {
+    /// <summary>
+    /// A menu to hold Items. 
+    /// </summary>
     public class Menu
     {
         #region Properties

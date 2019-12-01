@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ClydesTakeoutPrototype.Helpers
 {
+    /// <summary>
+    /// Provides email services.
+    /// </summary>
     public class NotificationService
     {
         public static MailAddress FromAddress { get => new MailAddress(_fromAcct); }
@@ -32,6 +35,13 @@ namespace ClydesTakeoutPrototype.Helpers
             Body = body;
         }
 
+        /// <summary>
+        /// Sends an email with the provided subject and body to the specified recipient address. 
+        /// </summary>
+        /// <param name="toAddress">Recipient's email</param>
+        /// <param name="subject">Subject text</param>
+        /// <param name="body">Body text</param>
+        /// <returns>A NotificationService instance.</returns>
         public static NotificationService SendEmail(string toAddress, string subject = null, string body = null)
         {
             NotificationService ns = new NotificationService(subject, body);
@@ -39,6 +49,11 @@ namespace ClydesTakeoutPrototype.Helpers
             return ns;
         }
 
+        /// <summary>
+        /// Sends an email to the specified recipient with the default subject and body.
+        /// </summary>
+        /// <param name="toAddress">Recipient's email</param>
+        /// <returns>True if email was sent, otherwise false</returns>
         public bool SendEmail(string toAddress)
         {
             try

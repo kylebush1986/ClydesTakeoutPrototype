@@ -16,11 +16,8 @@ namespace ClydesTakeoutPrototype
 {
     public class Program
     {
-        public static Menu ClydesMenu = new Menu();
         public static void Main(string[] args)
         {
-            // Load Clyde's Menu if it exists. If not then build it and create a menu database.
-            ClydesMenu.Items = MenuBuilder.MenuItems;
             CreateHostBuilder(args).Build().Run();
         }
 

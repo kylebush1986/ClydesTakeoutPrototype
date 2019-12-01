@@ -6,6 +6,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ClydesTakeoutPrototype.Models.OrderModels
 {
+    /// <summary>
+    /// A generic item.
+    /// </summary>
     public abstract class Item
     {
         #region Properties

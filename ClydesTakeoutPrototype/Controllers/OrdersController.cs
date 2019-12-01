@@ -13,12 +13,18 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace ClydesTakeoutPrototype.Controllers
 {
+    /// <summary>
+    /// Controller providing order related functions.
+    /// </summary>
     [Authorize]
     public class OrdersController : Controller
     {
         private readonly ILogger<OrdersController> _logger;
         //private readonly DataContext _context;
         private readonly ILocalDataContext _context;
+        /// <summary>
+        /// Get UserID from Cookie
+        /// </summary>
         private ulong UserID { 
             get {
                 HttpContext.Session.TryGetValue("UserID", out byte[] userID);
@@ -38,6 +44,10 @@ namespace ClydesTakeoutPrototype.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// GET An Order confirmation view.
+        /// </summary>
+        /// <returns>Order Index View</returns>
         public IActionResult Index()
         {
             float subTotal = 0f;
@@ -53,6 +63,11 @@ namespace ClydesTakeoutPrototype.Controllers
             return View(activeOrder);
         }
 
+        /// <summary>
+        /// GET action that removes an item from an Active Order.
+        /// </summary>
+        /// <param name="id">An Item ID</param>
+        /// <returns>Refresh View</returns>
         public IActionResult RemoveItemFromOrder(string id)
         {
             if (UserID != 0)
@@ -75,6 +90,10 @@ namespace ClydesTakeoutPrototype.Controllers
             return RedirectToAction("Index", "Orders");
         }
 
+        /// <summary>
+        /// GET action that cancels an Active Order.
+        /// </summary>
+        /// <returns>Redirect to Menu Index</returns>
         public IActionResult CancelOrder()
         {
             if (UserID != 0) {
@@ -85,6 +104,11 @@ namespace ClydesTakeoutPrototype.Controllers
             return RedirectToAction("Index", "Orders");
         }
 
+        /// <summary>
+        /// POST action that adds an Entree to an Active Order.
+        /// </summary>
+        /// <param name="entree">An Entree</param>
+        /// <returns>Redirect to SideItem View</returns>
         [HttpPost]
         public IActionResult AddEntreeToOrder([Bind("ID,Type,SpecialInstructions")] Entree entree)
         {
@@ -100,9 +124,13 @@ namespace ClydesTakeoutPrototype.Controllers
                 return RedirectToAction("SideItem", "Menus");
             }
             return RedirectToAction("Logout", "Account");
-            
         }
 
+        /// <summary>
+        /// POST action that adds a Side to an Active Order.
+        /// </summary>
+        /// <param name="side">A Side</param>
+        /// <returns>Redirect to DrinkItem View</returns>
         [HttpPost]
         public IActionResult AddSideToOrder([Bind("ID,Type,SpecialInstructions")] Side side)
         {
@@ -139,6 +167,11 @@ namespace ClydesTakeoutPrototype.Controllers
             return RedirectToAction("Logout", "Account");
         }
 
+        /// <summary>
+        /// POST action to add a Drink to an Active Order.
+        /// </summary>
+        /// <param name="drink">A Drink</param>
+        /// <returns>Redirect to Menu Index View</returns>
         [HttpPost]
         public IActionResult AddDrinkToOrder([Bind("ID,Type,DrinkSize")] Drink drink)
         {
@@ -176,6 +209,11 @@ namespace ClydesTakeoutPrototype.Controllers
             return RedirectToAction("Logout", "Account");
         }
 
+        /// <summary>
+        /// POST action to submit an order.
+        /// </summary>
+        /// <param name="finalOrder">An Order</param>
+        /// <returns>Redirect to Order Success View</returns>
         [HttpPost]
         public IActionResult SubmitOrder([Bind("ID,PickupTime")] Order finalOrder)
         {
@@ -198,11 +236,21 @@ namespace ClydesTakeoutPrototype.Controllers
             return View();
         }
 
+        /// <summary>
+        /// GET Order Success view.
+        /// </summary>
+        /// <returns>OrderSuccess View</returns>
         public IActionResult OrderSuccess()
         {
             return View();
         }
 
+        /// <summary>
+        /// Create subject and body arguments for an email to notify a customer their order has been received.
+        /// </summary>
+        /// <param name="user">A user</param>
+        /// <param name="order">An order</param>
+        /// <returns>Email arguments</returns>
         private string[] CreateSubmitOrderEmail(User user, Order order)
         {
             return new string[]

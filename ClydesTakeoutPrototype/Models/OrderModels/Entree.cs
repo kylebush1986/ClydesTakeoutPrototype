@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace ClydesTakeoutPrototype.Models.OrderModels
 {
+    /// <summary>
+    /// An Entree.
+    /// </summary>
     public class Entree : Item
     {
        

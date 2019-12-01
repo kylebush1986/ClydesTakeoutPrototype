@@ -11,6 +11,9 @@ using ClydesTakeoutPrototype.Data;
 
 namespace ClydesTakeoutPrototype.Controllers
 {
+    /// <summary>
+    /// Controller providing Menu related actions.
+    /// </summary>
     [Authorize]
     public class MenusController : Controller
     {
@@ -24,6 +27,10 @@ namespace ClydesTakeoutPrototype.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// GET Menu Index view.
+        /// </summary>
+        /// <returns>Menu View</returns>
         [AllowAnonymous]
         public IActionResult Index()
         {
@@ -34,10 +41,21 @@ namespace ClydesTakeoutPrototype.Controllers
             return View(menu);
         }
 
+        /// <summary>
+        /// GET Entree item details view
+        /// </summary>
+        /// <param name="id">An Entree ID</param>
+        /// <returns>EntreeItem View</returns>
         public IActionResult EntreeItem(ulong id)
         {
             return View(_context.ItemDB.FirstOrDefault(x => x.ID == id));
         }
+
+        /// <summary>
+        /// GET Side item details view.
+        /// </summary>
+        /// <param name="id">A Side ID</param>
+        /// <returns>SideItem View</returns>
         public IActionResult SideItem(ulong id)
         {
             if (id == 0)
@@ -52,6 +70,12 @@ namespace ClydesTakeoutPrototype.Controllers
                 return View(_context.ItemDB.FirstOrDefault(x => x.ID == id));
             }
         }
+
+        /// <summary>
+        /// GET a Drink item details view.
+        /// </summary>
+        /// <param name="id">A Drink ID</param>
+        /// <returns>DrinkItem View</returns>
         public IActionResult DrinkItem(ulong id)
         {
             if(id == 0)
